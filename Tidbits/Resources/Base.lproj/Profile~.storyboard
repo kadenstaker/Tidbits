@@ -6,9 +6,26 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Profile-->
+        <scene sceneID="CzU-nR-X5q">
+            <objects>
+                <viewController id="C1f-mU-hgB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UJf-NC-Xau">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VD7-Xk-1yc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="y0V-QD-hSI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uit-4W-sQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1122" y="170"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5qg-vg-VdX">
             <objects>
@@ -20,8 +37,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="HFf-Lv-Wic" kind="relationship" relationship="viewControllers" id="LXP-lK-REk"/>
-                        <segue destination="P6j-GB-ORp" kind="relationship" relationship="viewControllers" id="gGp-Zd-cmC"/>
-                        <segue destination="606-J7-yvQ" kind="relationship" relationship="viewControllers" id="5wt-Ie-Ede"/>
+                        <segue destination="C1f-mU-hgB" kind="relationship" relationship="viewControllers" id="gRv-aQ-GAl"/>
+                        <segue destination="P6j-GB-ORp" kind="relationship" relationship="viewControllers" id="cQ2-it-wxh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5NS-b2-ERA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,7 +53,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeB-GO-vA5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="-568"/>
+            <point key="canvasLocation" x="884" y="-848"/>
         </scene>
         <!--Add-->
         <scene sceneID="tGi-kR-BbJ">
@@ -46,17 +63,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUm-Cm-J1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="-400"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="sox-41-eZi">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="606-J7-yvQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8fJ-qx-EGo"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eXV-lS-5NS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="162" y="-229"/>
+            <point key="canvasLocation" x="868" y="-389"/>
         </scene>
     </scenes>
 </document>
