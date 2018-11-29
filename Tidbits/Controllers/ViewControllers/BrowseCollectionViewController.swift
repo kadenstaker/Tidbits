@@ -12,6 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class BrowseCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var customCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -13,7 +13,7 @@
         <!--Browse-->
         <scene sceneID="L7h-Vu-Mpf">
             <objects>
-                <viewController id="gTS-sp-AdC" sceneMemberID="viewController">
+                <viewController id="gTS-sp-AdC" customClass="BrowseCollectionViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZnJ-fl-loV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jeS-ct-cp0">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jeS-ct-cp0" customClass="BrowseCollectionViewCell" customModule="Tidbits" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="179"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -64,6 +64,11 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="zUV-8k-WTe" secondAttribute="bottom" constant="26" id="elU-5L-Hsq"/>
                                             <constraint firstItem="Xjm-dz-Qpn" firstAttribute="centerX" secondItem="jeS-ct-cp0" secondAttribute="centerX" id="ofk-Ua-u7Y"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="zUV-8k-WTe" id="ZAU-Ae-NUh"/>
+                                            <outlet property="iconImageView" destination="Xjm-dz-Qpn" id="v4y-J0-4Fo"/>
+                                            <outlet property="numberOfItemLabel" destination="MjZ-In-NN7" id="5UU-Bn-Zcg"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -79,6 +84,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Browse" id="93p-iX-qoE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="customCollectionView" destination="NjA-Nn-8KR" id="nME-yJ-b1d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVD-aA-Frl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
