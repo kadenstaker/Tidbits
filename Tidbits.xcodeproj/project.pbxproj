@@ -16,6 +16,8 @@
 		FAD094F521B0510900C999CD /* Browse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD094F421B0510900C999CD /* Browse.storyboard */; };
 		FAD0950421B053B000C999CD /* Add.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0950321B053B000C999CD /* Add.storyboard */; };
 		FAD0950621B053E700C999CD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0950521B053E700C999CD /* Profile.storyboard */; };
+		FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950821B0870D00C999CD /* InternalUser.swift */; };
+		FAD0950B21B0871500C999CD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950A21B0871500C999CD /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		FAD094F421B0510900C999CD /* Browse.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Browse.storyboard; sourceTree = "<group>"; };
 		FAD0950321B053B000C999CD /* Add.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Add.storyboard; sourceTree = "<group>"; };
 		FAD0950521B053E700C999CD /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		FAD0950821B0870D00C999CD /* InternalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUser.swift; sourceTree = "<group>"; };
+		FAD0950A21B0871500C999CD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		FAD094F821B051ED00C999CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0950821B0870D00C999CD /* InternalUser.swift */,
+				FAD0950A21B0871500C999CD /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,7 +131,6 @@
 			children = (
 				FAD094FD21B0523E00C999CD /* ModelControllers */,
 				FAD094FC21B0523600C999CD /* ViewControllers */,
-				FAD094FE21B0524400C999CD /* FirebaseManager */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 		FAD094FC21B0523600C999CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0950721B066C100C999CD /* UtilityControllers */,
 				FAD0950021B0532900C999CD /* Browse */,
 				FAD0950121B0533000C999CD /* Add */,
 				FAD0950221B0533500C999CD /* Profile */,
@@ -145,13 +151,6 @@
 			children = (
 			);
 			path = ModelControllers;
-			sourceTree = "<group>";
-		};
-		FAD094FE21B0524400C999CD /* FirebaseManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FirebaseManager;
 			sourceTree = "<group>";
 		};
 		FAD094FF21B0525100C999CD /* Extensions */ = {
@@ -183,6 +182,13 @@
 				FAD0950521B053E700C999CD /* Profile.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		FAD0950721B066C100C999CD /* UtilityControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UtilityControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,7 +317,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD0950B21B0871500C999CD /* Post.swift in Sources */,
 				FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */,
+				FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
