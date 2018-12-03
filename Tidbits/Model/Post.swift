@@ -11,12 +11,12 @@ import UIKit
 class Post {
     
     // Properties
-    let image: UIImage? // Image url
-    // var imageURL: String?
+    var image: UIImage?
+    var imageURL: String?
     var text: String
-    let category: String
+    var category: String
     let username: String
-    // var uid: String?
+    var uid: String?
     
     // Initializer
     init(image: UIImage?, text: String, category: String, username: String) {
@@ -24,5 +24,14 @@ class Post {
         self.text = text
         self.category = category
         self.username = username
+    }
+}
+
+extension Post: Equatable {
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        return lhs.image == rhs.image &&
+            lhs.text == rhs.text &&
+            lhs.category == rhs.category &&
+            lhs.username == rhs.username
     }
 }

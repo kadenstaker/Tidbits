@@ -15,13 +15,14 @@ class InternalUser {
     var profileImage: UIImage?
     var favorites: String?
     var posts: [Post]?
-    // let email: String
+    let email: String
     
     // Initializer
-    init(username: String, profileImage: UIImage?, favorites: String?, posts: [Post]?) {
+    init(username: String, profileImage: UIImage?, favorites: String?, posts: [Post]?, email: String) {
         self.username = username
         self.profileImage = profileImage
         self.favorites = favorites
         self.posts = posts
+        self.email = email
     }
 }
