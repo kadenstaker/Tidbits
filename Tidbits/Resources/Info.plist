@@ -41,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<string>NO</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
+	<string>YES</string>
 </dict>
 </plist>
