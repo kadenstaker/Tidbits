@@ -27,6 +27,9 @@
 		FAD0950621B053E700C999CD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD0950521B053E700C999CD /* Profile.storyboard */; };
 		FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950821B0870D00C999CD /* InternalUser.swift */; };
 		FAD0950B21B0871500C999CD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950A21B0871500C999CD /* Post.swift */; };
+		FAD0950D21B0929200C999CD /* InternalUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950C21B0929200C999CD /* InternalUserController.swift */; };
+		FAD0950F21B0A18700C999CD /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950E21B0A18700C999CD /* PostController.swift */; };
+		FAD0951121B0D1F600C999CD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0951021B0D1F600C999CD /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		FAD0950521B053E700C999CD /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FAD0950821B0870D00C999CD /* InternalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUser.swift; sourceTree = "<group>"; };
 		FAD0950A21B0871500C999CD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FAD0950C21B0929200C999CD /* InternalUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUserController.swift; sourceTree = "<group>"; };
+		FAD0950E21B0A18700C999CD /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		FAD0951021B0D1F600C999CD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 		FAD094FB21B0520800C999CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0950721B066C100C999CD /* UtilityControllers */,
 				FAD094FD21B0523E00C999CD /* ModelControllers */,
 				FAD094FC21B0523600C999CD /* ViewControllers */,
 			);
@@ -169,6 +176,8 @@
 		FAD094FD21B0523E00C999CD /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0950C21B0929200C999CD /* InternalUserController.swift */,
+				FAD0950E21B0A18700C999CD /* PostController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			children = (
 				191F15C721B1C64400160F3D /* AlertManager.swift */,
 				191F15C921B1C65300160F3D /* DateManager.swift */,
+				FAD0951021B0D1F600C999CD /* FirebaseManager.swift */,
 			);
 			path = UtilityControllers;
 			sourceTree = "<group>";
@@ -344,6 +354,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD0951121B0D1F600C999CD /* FirebaseManager.swift in Sources */,
+				FAD0950F21B0A18700C999CD /* PostController.swift in Sources */,
 				19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */,
 				191F15CA21B1C65300160F3D /* DateManager.swift in Sources */,
 				19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */,
@@ -356,6 +368,7 @@
 				19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */,
 				19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */,
 				191F15C821B1C64400160F3D /* AlertManager.swift in Sources */,
+				FAD0950D21B0929200C999CD /* InternalUserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
