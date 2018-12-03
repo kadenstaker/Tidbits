@@ -23,18 +23,22 @@
 	<key>STORAGE_BUCKET</key>
 	<string>tidbits-a61c5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:72463339212:ios:489682fbaf3e1ff4</string>
 	<key>DATABASE_URL</key>
 	<string>https://tidbits-a61c5.firebaseio.com</string>
+	<key>IS_MEASUREMENT_ENABLED</key>
+	<true/>
+	<key>FIRAnalyticsDebugEnabled</key>
+	<false/>
 </dict>
 </plist>

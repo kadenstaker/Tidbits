@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CED21B097C900619398 /* BrowseCollectionViewController.swift */; };
 		19123CF021B097EB00619398 /* BrowseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CEF21B097EB00619398 /* BrowseCollectionViewCell.swift */; };
+		19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF121B0A0DC00619398 /* BrowseTableViewController.swift */; };
+		19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF321B0A13800619398 /* BrowseDetailViewController.swift */; };
+		19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF521B0B50200619398 /* BrowseTableViewCell.swift */; };
+		191F15C821B1C64400160F3D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15C721B1C64400160F3D /* AlertManager.swift */; };
+		191F15CA21B1C65300160F3D /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15C921B1C65300160F3D /* DateManager.swift */; };
+		191F15CC21B1F15300160F3D /* AddHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CB21B1F15300160F3D /* AddHackViewController.swift */; };
+		191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */; };
 		C78B82500767E46D30B7E390 /* Pods_Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */; };
 		FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC3B921AC9D070092C3F8 /* AppDelegate.swift */; };
 		FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3BD21AC9D070092C3F8 /* Main.storyboard */; };
@@ -26,6 +33,13 @@
 		0D0A6C8EB7DDA45B8B3DAA7B /* Pods-Tidbits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.release.xcconfig"; sourceTree = "<group>"; };
 		19123CED21B097C900619398 /* BrowseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCollectionViewController.swift; sourceTree = "<group>"; };
 		19123CEF21B097EB00619398 /* BrowseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrowseCollectionViewCell.swift; path = Tidbits/Controllers/ViewControllers/BrowseCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		19123CF121B0A0DC00619398 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
+		19123CF321B0A13800619398 /* BrowseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseDetailViewController.swift; sourceTree = "<group>"; };
+		19123CF521B0B50200619398 /* BrowseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrowseTableViewCell.swift; path = Tidbits/Controllers/ViewControllers/BrowseTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		191F15C721B1C64400160F3D /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = Tidbits/Controllers/ViewControllers/AlertManager.swift; sourceTree = SOURCE_ROOT; };
+		191F15C921B1C65300160F3D /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = Tidbits/Controllers/ViewControllers/DateManager.swift; sourceTree = SOURCE_ROOT; };
+		191F15CB21B1F15300160F3D /* AddHackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHackViewController.swift; sourceTree = "<group>"; };
+		191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tidbits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F00541D6632FC5B52AC218 /* Pods-Tidbits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.debug.xcconfig"; sourceTree = "<group>"; };
 		FA5EC3B621AC9D070092C3F8 /* Tidbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				19123CEF21B097EB00619398 /* BrowseCollectionViewCell.swift */,
+				19123CF521B0B50200619398 /* BrowseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,7 +158,6 @@
 		FAD094FC21B0523600C999CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				19123CED21B097C900619398 /* BrowseCollectionViewController.swift */,
 				FAD0950721B066C100C999CD /* UtilityControllers */,
 				FAD0950021B0532900C999CD /* Browse */,
 				FAD0950121B0533000C999CD /* Add */,
@@ -170,6 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				FAD094F421B0510900C999CD /* Browse.storyboard */,
+				19123CED21B097C900619398 /* BrowseCollectionViewController.swift */,
+				19123CF121B0A0DC00619398 /* BrowseTableViewController.swift */,
+				19123CF321B0A13800619398 /* BrowseDetailViewController.swift */,
 			);
 			path = Browse;
 			sourceTree = "<group>";
@@ -178,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				FAD0950321B053B000C999CD /* Add.storyboard */,
+				191F15CB21B1F15300160F3D /* AddHackViewController.swift */,
+				191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -193,6 +212,8 @@
 		FAD0950721B066C100C999CD /* UtilityControllers */ = {
 			isa = PBXGroup;
 			children = (
+				191F15C721B1C64400160F3D /* AlertManager.swift */,
+				191F15C921B1C65300160F3D /* DateManager.swift */,
 			);
 			path = UtilityControllers;
 			sourceTree = "<group>";
@@ -324,10 +345,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */,
+				191F15CA21B1C65300160F3D /* DateManager.swift in Sources */,
+				19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */,
 				FAD0950B21B0871500C999CD /* Post.swift in Sources */,
 				FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */,
 				19123CF021B097EB00619398 /* BrowseCollectionViewCell.swift in Sources */,
+				191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */,
+				191F15CC21B1F15300160F3D /* AddHackViewController.swift in Sources */,
 				FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */,
+				19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */,
+				19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */,
+				191F15C821B1C64400160F3D /* AlertManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
