@@ -7,6 +7,6 @@ target 'Tidbits' do
 
   # Pods for Tidbits
 	pod 'Firebase/Core'
-	pod 'FirebaseUI'
-	pod 'FirebaseUI/Auth'
+	pod 'FirebaseAuth'
+	pod 'Firebase/Database'
 end
