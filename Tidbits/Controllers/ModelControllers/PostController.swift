@@ -22,9 +22,6 @@ class PostController {
     
     // func createPostWith(image: UIImage?, text: String)
     func createPostWith(image: UIImage, text: String, category: String, username: String) {
-        let post = Post(image: image, text: text, category: category, username: username)
-        posts?.append(post)
-        // save
     }
     
     // func fetchPost(post: Post)
@@ -32,11 +29,7 @@ class PostController {
     // func fetchImageFor(post: Post)
     
     // func update(post: Post)
-    func update(post: Post, with image: UIImage?, text: String, category: String, username: String) {
-        post.image = image
-        post.text = text
-        post.category = category
-        // save
+    func update(post: Post, with image: UIImage?, text: String, category: String) {
     }
     
     // func delete(post: Post)
