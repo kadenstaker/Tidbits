@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "tidbitCell"
 
 class BrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
@@ -18,14 +18,6 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
         
 //        customCollectionView.delegate = self
 //        customCollectionView.dataSource = self
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
     /*
@@ -43,11 +35,28 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 10
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tidbitCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tidbitCell", for: indexPath) as? BrowseCollectionViewCell else { return UICollectionViewCell()}
+//        guard let post = PostController.shared.posts?[indexPath.row] else { return UICollectionViewCell()}
+//        //Instead of making the post in the postController an optional array, make it an array = []
+//        cell.categoryNameLabel.text = post.category
+//        cell.numberOfItemLabel.text = "\(PostController.shared.posts?.count ?? 0)"
+        _ = indexPath.item
+        cell.layer.cornerRadius = 20
+        cell.contentView.layer.cornerRadius = 20
+        cell.contentView.layer.borderColor = UIColor.cyan.cgColor
+        cell.contentView.layer.borderWidth = 5
+        cell.contentView.layer.backgroundColor = UIColor.white.cgColor
+        cell.backgroundColor = UIColor.white
+        //        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowRadius = 10
+        cell.layer.shadowOpacity = 0.4
+        cell.layer.masksToBounds = false
+//                cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+//                cell.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
     
         // Configure the cell
     
@@ -56,12 +65,6 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
 
     /*
     // Uncomment this method to specify if the specified item should be selected

@@ -37,47 +37,27 @@ class PhotoSelectorViewController: UIViewController {
     @IBAction func addPhotoButtonTapped(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
+
         let actionSheet = UIAlertController(title: "Select a Photo", message: nil, preferredStyle: .actionSheet)
         let _ = UIImagePickerController.isSourceTypeAvailable(.camera)
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
             actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
                 imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
             }))
         }
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
                 imagePicker.sourceType = UIImagePickerController.SourceType.camera
                 self.present(imagePicker, animated: true, completion: nil)
             }))
         }
-        
+
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
         present(actionSheet, animated:  true)
-    }
-    
-    func showCamera(){
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
-        {
-            imagePicker.sourceType = UIImagePickerController.SourceType.camera
-            imagePicker.allowsEditing = true
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-        else
-        {
-            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
     }
 }
 

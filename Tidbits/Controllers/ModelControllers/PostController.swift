@@ -34,6 +34,22 @@ class PostController {
     
     // func delete(post: Post)
     func delete(post: Post) {
+        guard let postIndex = posts?.firstIndex(of: post) else { return }
+        posts?.remove(at: postIndex)
+        // save
+    }
+    
+    // MARK: - Local Persistence
+    func fileURL() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = paths[0]
+        let filename = "tidbits.json"
+        let fullURL = documentDirectory.appendingPathComponent(filename)
+        return fullURL
+    }
+    
+    func saveToPersistentStore() {
+        let encoder = JSONEncoder()
     }
     
     // MARK: - Mock data

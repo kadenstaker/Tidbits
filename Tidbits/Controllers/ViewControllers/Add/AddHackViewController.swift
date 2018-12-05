@@ -69,6 +69,12 @@ class AddTableViewController: UITableViewController {
             print("Select a category button was tapped")
         }
     }
+    
+    @IBAction func postButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

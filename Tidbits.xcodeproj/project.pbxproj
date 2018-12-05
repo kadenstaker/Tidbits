@@ -16,6 +16,7 @@
 		191F15CA21B1C65300160F3D /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15C921B1C65300160F3D /* DateManager.swift */; };
 		191F15CC21B1F15300160F3D /* AddHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CB21B1F15300160F3D /* AddHackViewController.swift */; };
 		191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */; };
+		1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962525821B5F31F004C2D58 /* ProfileViewController.swift */; };
 		C78B82500767E46D30B7E390 /* Pods_Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */; };
 		FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC3B921AC9D070092C3F8 /* AppDelegate.swift */; };
 		FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3BD21AC9D070092C3F8 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		191F15C921B1C65300160F3D /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = Tidbits/Controllers/ViewControllers/DateManager.swift; sourceTree = SOURCE_ROOT; };
 		191F15CB21B1F15300160F3D /* AddHackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHackViewController.swift; sourceTree = "<group>"; };
 		191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		1962525821B5F31F004C2D58 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tidbits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F00541D6632FC5B52AC218 /* Pods-Tidbits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.debug.xcconfig"; sourceTree = "<group>"; };
 		FA5EC3B621AC9D070092C3F8 /* Tidbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD0950521B053E700C999CD /* Profile.storyboard */,
+				1962525821B5F31F004C2D58 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				191F15CA21B1C65300160F3D /* DateManager.swift in Sources */,
 				19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */,
 				FAD0950B21B0871500C999CD /* Post.swift in Sources */,
+				1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */,
 				FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */,
 				19123CF021B097EB00619398 /* BrowseCollectionViewCell.swift in Sources */,
 				191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */,
@@ -519,7 +523,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 288VUFV9XZ;
+				DEVELOPMENT_TEAM = 57CQ48CJGQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Tidbits/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -538,7 +542,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 288VUFV9XZ;
+				DEVELOPMENT_TEAM = 57CQ48CJGQ;
 				INFOPLIST_FILE = "$(SRCROOT)/Tidbits/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
