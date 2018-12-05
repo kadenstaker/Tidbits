@@ -43,7 +43,7 @@ class BrowseTableViewCell: UITableViewCell {
         }
     }
     @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
+//        let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -56,7 +56,7 @@ class PostController {
     }
     
     func saveToPersistentStore() {
-        let encoder = JSONEncoder
+        let encoder = JSONEncoder()
     }
     
     // MARK: - Mock data
