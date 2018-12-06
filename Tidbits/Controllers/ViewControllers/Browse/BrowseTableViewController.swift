@@ -26,6 +26,7 @@ class BrowseTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
+        let _ = PostController.shared.posts?[indexPath.row]
 
         // Configure the cell...
 
@@ -45,11 +46,15 @@ class BrowseTableViewController: UITableViewController {
 
 extension BrowseTableViewController: UISearchBarDelegate{
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        <#code#>
-//    }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        <#code#>
-//    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+        
+    }
 }

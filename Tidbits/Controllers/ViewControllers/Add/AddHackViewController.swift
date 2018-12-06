@@ -16,9 +16,9 @@ class AddTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    var image: UIImage?
     //MARK: - Actions
     @IBAction func dropDownSelection(_ sender: UIButton) {
         allcategories.forEach { (category) in
@@ -27,7 +27,6 @@ class AddTableViewController: UITableViewController {
                 self.view.layoutIfNeeded()
             })
         }
-        
     }
     
     enum Categories: String {
@@ -71,6 +70,12 @@ class AddTableViewController: UITableViewController {
     }
     
     @IBAction func postButtonTapped(_ sender: UIButton) {
+        print("post button was tapped")
+        guard let image = image,
+            let tidbit = enterTidbitTextField.text, !tidbit.isEmpty else { return }
+        //Create function
+//        PostController.shared
+        
         
     }
     
@@ -79,8 +84,17 @@ class AddTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toImageSelector"{
+            guard let destinationVC = segue.destination as? PhotoSelectorViewController else { return}
+            destinationVC.delegate = self
+        }
     }
 
+}
+
+extension AddTableViewController: PhotoSelectorViewControllerDelegate{
+    func selectPhoto(_ photo: UIImage) {
+    }
+    
+    
 }
