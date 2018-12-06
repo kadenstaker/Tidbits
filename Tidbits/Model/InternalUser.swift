@@ -12,17 +12,18 @@ class InternalUser {
     
     // Properties
     let username: String
-    var profileImage: UIImage?
-    var favorites: String?
-    var posts: [Post]?
+    var profileImage: Data?
+    var favoritePostIDs: String?
+    var postIDs: [Post]?
     let email: String
+    var blockedIDs: [String]?
     
     // Initializer
-    init(username: String, profileImage: UIImage?, favorites: String?, posts: [Post]?, email: String) {
+    init(username: String, profileImage: Data?, favoritePostIDs: String?, postIDs: [Post]?, email: String) {
         self.username = username
         self.profileImage = profileImage
-        self.favorites = favorites
-        self.posts = posts
+        self.favoritePostIDs = favoritePostIDs
+        self.postIDs = postIDs
         self.email = email
     }
 }

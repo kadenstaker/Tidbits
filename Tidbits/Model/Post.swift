@@ -15,15 +15,29 @@ class Post {
     var imageURL: String?
     var text: String
     var category: String
-    let username: String
     var uid: String?
+    let createdByID: String
+    
+    var asDictionary: [String : Any] {
+        var dictionary = [
+            "text" : text,
+            "category" : category,
+            "createdByID" : createdByID
+        ]
+        
+        if let imageURL = imageURL {
+            dictionary["imageURL"] = imageURL
+        }
+        
+        return dictionary
+    }
     
     // Initializer
-    init(image: UIImage?, text: String, category: String, username: String) {
+    init(image: UIImage?, text: String, category: String, createdByID: String) {
         self.image = image
         self.text = text
         self.category = category
-        self.username = username
+        self.createdByID = createdByID
     }
 }
 
@@ -32,6 +46,6 @@ extension Post: Equatable {
         return lhs.image == rhs.image &&
             lhs.text == rhs.text &&
             lhs.category == rhs.category &&
-            lhs.username == rhs.username
+            lhs.createdByID == rhs.createdByID
     }
 }

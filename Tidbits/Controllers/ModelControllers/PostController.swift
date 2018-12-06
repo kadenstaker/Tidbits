@@ -21,7 +21,38 @@ class PostController {
     private init() {}
     
     // func createPostWith(image: UIImage?, text: String)
-    func createPostWith(image: UIImage, text: String, category: String, username: String) {
+    func createPostWith(image: UIImage?, text: String, category: String, username: String, completion: @escaping (Bool) -> Void) {
+        
+        let post = Post(image: image, text: text, category: category, createdByID: username)
+        
+        let databaseRef = Database.database().reference().childByAutoId()
+
+        if let image = image {
+            guard let imageAsData = image.pngData() else { completion(false) ; return }
+            let storeRef = Storage.storage().reference().child("Post").child(databaseRef.key!)
+            FirebaseManager.save(data: imageAsData, to: storeRef) { (metadata, error) in
+                if let _ = error {
+                    completion(false)
+                    return
+                }
+                
+                metadata.downloadURL
+        
+                
+                FirebaseManager.save(object: post.asDictionary, to: databaseRef, completion: { (success) in
+                    if success {
+                        completion(true)
+                    }
+                })
+            }
+        } else {
+            FirebaseManager.save(object: post.asDictionary, to: databaseRef, completion: { (success) in
+                if success {
+                    completion(true)
+                }
+            })
+
+        }
     }
     
     // func fetchPost(post: Post)
