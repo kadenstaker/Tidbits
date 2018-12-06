@@ -47,7 +47,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vut-LZ-K9V">
                                                     <rect key="frame" x="16" y="56" width="343" height="310"/>
                                                     <connections>
-                                                        <segue destination="y7A-5Q-atN" kind="embed" id="5lJ-O7-isv"/>
+                                                        <segue destination="y7A-5Q-atN" kind="embed" identifier="toImageSelector" id="5lJ-O7-isv"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>

@@ -20,14 +20,10 @@ class BrowseDetailViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-    }
-    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-    }
     @IBAction func heartButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func shareButtonTapped(_ sender: Any) {
-    }
+//    @IBAction func shareButtonTapped(_ sender: Any) {
+//    }
     @IBAction func otherButtonTapped(_ sender: UIButton) {
     }
     
