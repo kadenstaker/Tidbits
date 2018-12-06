@@ -9,11 +9,15 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class FirebaseManager {
     
-    static var reference: DatabaseReference = Database.database().reference()
+    // MARK: - Properties
+    static var databaseRef: DatabaseReference = Database.database().reference()
+    static var storeRef: StorageReference = Storage.storage().reference()
     
+    // MARK: - User Management
     static public func signInAnonymously(completion: @escaping (Bool) -> Void) {
         Auth.auth().signInAnonymously { (authResult, error) in
             if let error = error {
@@ -49,7 +53,7 @@ class FirebaseManager {
                 completion(false)
                 return
             }
-            let ref = reference.child("Users").child(username)
+            let ref = databaseRef.child("Users").child(username)
             
             let userDictionary: [String : Any] = ["email" : email,
                                                   "password" : password,
@@ -67,10 +71,41 @@ class FirebaseManager {
     }
     
     static public func blockUser(user: InternalUser, reason: String, completion: @escaping (Bool) -> Void) {
-        
+        // Not for MVP
     }
     
     static public func deleteUser(user: InternalUser, completion: @escaping (Bool) -> Void) {
+        // Not for MVP
+    }
+    
+    
+    // MARK: - Post Management
+    static public func save(object: Any, to ref: DatabaseReference, completion: @escaping (Bool) -> Void) {
+        
+        ref.setValue(object) { (error, _) in
+            if let error = error {
+                print("There was an error saving to the database.")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
+    
+    // MARK: - Firebase Storage
+    
+    static public func save(data: Data, to ref: StorageReference, completion: @escaping (StorageMetadata?, Error?) -> Void) {
+
+        ref.putData(data, metadata: nil) { (metadata, error) in
+            if let error = error {
+                print("There was an error saving data to the storage.")
+                completion(nil, error)
+                return
+            }
+            guard let metadata = metadata else { completion(nil, error) ; return }
+            completion(metadata, nil)
+        }
         
     }
 }
+

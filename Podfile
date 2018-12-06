@@ -9,4 +9,5 @@ target 'Tidbits' do
 	pod 'Firebase/Core'
 	pod 'FirebaseAuth'
 	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
 end
