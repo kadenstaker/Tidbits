@@ -70,6 +70,26 @@ class FirebaseManager {
         }
     }
     
+    func getUser(completion: @escaping (Bool) -> Void) {
+        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil {
+                // User is signed in.
+                // ...
+            } else {
+                // No user is signed in.
+                // ...
+            }
+        }
+        let userID = Auth.auth().currentUser?.uid
+    }
+    
+    static public func fetch(from ref: DatabaseReference, completion: @escaping (Any?) -> Void) {
+        
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            completion(snapshot.value)
+        }
+    }
+    
     static public func blockUser(user: InternalUser, reason: String, completion: @escaping (Bool) -> Void) {
         // Not for MVP
     }
@@ -84,7 +104,7 @@ class FirebaseManager {
         
         ref.setValue(object) { (error, _) in
             if let error = error {
-                print("There was an error saving to the database.")
+                print("There was an error saving to the database. \(error) \(error.localizedDescription)")
                 completion(false)
                 return
             }
