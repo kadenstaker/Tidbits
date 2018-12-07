@@ -13,6 +13,8 @@ class BrowseTableViewController: UITableViewController {
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,8 +40,12 @@ class BrowseTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toDetailVC"{
+            guard let destinationVC = segue.destination as? BrowseDetailViewController else { return }
+            let indexPath = tableView.indexPathForSelectedRow
+            let hack = PostController.shared.posts?[indexPath?.row ?? 0]
+            destinationVC.post = hack
+        }
     }
 
 }
@@ -55,6 +61,5 @@ extension BrowseTableViewController: UISearchBarDelegate{
         searchBar.text = ""
         searchBar.resignFirstResponder()
         tableView.reloadData()
-        
     }
 }

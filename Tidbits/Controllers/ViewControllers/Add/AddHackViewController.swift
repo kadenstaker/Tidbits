@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTableViewController: UITableViewController {
+class AddHackViewController: UITableViewController {
     
     //MARK: Outlets
     @IBOutlet weak var customTableView: UITableView!
@@ -28,24 +28,12 @@ class AddTableViewController: UITableViewController {
             })
         }
     }
-    
-    enum Categories: String {
-        case all = "All"
-        
-        case food = "Food"
-        case party = "Party"
-        case money = "Money"
-        case tech = "Tech"
-        case health = "Health"
-        case favorite = "Favorite"
-        case funny = "Funny"
-    }
-    
+
     @IBOutlet var allcategories: [UIButton]!
     
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
         // Sets w.e the title of w.e category is clicked
-        guard let title = sender.currentTitle, let tidbitCategory = Categories(rawValue: title) else { return }
+        guard let title = sender.currentTitle, let tidbitCategory = PostController.Categories(rawValue: title) else { return }
         
         switch tidbitCategory {
         case .all :
@@ -74,7 +62,8 @@ class AddTableViewController: UITableViewController {
         guard let image = image,
             let tidbit = enterTidbitTextField.text, !tidbit.isEmpty else { return }
         //Create function
-//        PostController.shared
+//        PostController.shared.createPostWith(image: image, text: tidbit, category: Categories, username: "") { (success) in
+//        }
         
         
     }
@@ -92,7 +81,7 @@ class AddTableViewController: UITableViewController {
 
 }
 
-extension AddTableViewController: PhotoSelectorViewControllerDelegate{
+extension AddHackViewController: PhotoSelectorViewControllerDelegate{
     func selectPhoto(_ photo: UIImage) {
     }
     

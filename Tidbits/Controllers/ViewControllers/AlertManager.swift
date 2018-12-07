@@ -10,17 +10,27 @@ import UIKit
 
 class AlertManager {
     
-    static func presentAlerts(){
-        let alert = UIAlertController(title: "Delete Tidbit", message: "Are you sure you want to delete this Tidbit", preferredStyle: .alert)
-        let userAction = UIAlertAction(title: "YES", style: .default, handler: nil)
+    static func presentAlerts() -> UIAlertController{
+        let alert = UIAlertController(title: "Delete Tidbit", message: "Are you sure you want to delete this Tidbit?", preferredStyle: .alert)
+        let userAction = UIAlertAction(title: "YES", style: .destructive, handler: nil)
+        let noButton = UIAlertAction(title: "NO", style: .cancel, handler: nil)
         alert.addAction(userAction)
+        alert.addAction(noButton)
+        return alert
+        
     }
     
-    static func deleteAccountAlert() {
+    static func deleteAccountAlert() ->UIAlertController {
         let deleteAlert = UIAlertController(title: "Delete Account", message: "Are you sure you want to delete your account? You can't undo this.", preferredStyle: .alert)
         let userAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
         deleteAlert.addAction(userAction)
+        return deleteAlert
     }
+    
+//    static func reportAlert() -> UIAlertController{
+////        let reportAlert = UIAlertController(title: "Report Post", message: "Are you sure you want to report this Post?", preferredStyle: <#T##UIAlertController.Style#>)
+//    }
    
 }
 

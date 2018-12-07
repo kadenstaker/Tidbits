@@ -68,7 +68,7 @@
                                             <outlet property="categoryNameLabel" destination="zUV-8k-WTe" id="ZAU-Ae-NUh"/>
                                             <outlet property="iconImageView" destination="Xjm-dz-Qpn" id="v4y-J0-4Fo"/>
                                             <outlet property="numberOfItemLabel" destination="MjZ-In-NN7" id="5UU-Bn-Zcg"/>
-                                            <segue destination="OES-Yd-r2E" kind="show" id="E3d-tr-SIu"/>
+                                            <segue destination="OES-Yd-r2E" kind="show" identifier="toTidbitCell" id="E3d-tr-SIu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -249,9 +249,6 @@
                                             <constraint firstAttribute="height" constant="30" id="mUJ-Or-K7A"/>
                                         </constraints>
                                         <state key="normal" title="S" image="iconfinder_share_1891415"/>
-                                        <connections>
-                                            <action selector="shareButtonTapped:" destination="O7b-6B-a2V" eventType="touchUpInside" id="WYr-T7-glJ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
