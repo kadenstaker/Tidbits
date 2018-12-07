@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTableViewController: UITableViewController {
+class AddHackViewController: UITableViewController {
     
     //MARK: Outlets
     @IBOutlet weak var customTableView: UITableView!
@@ -16,9 +16,9 @@ class AddTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+    var image: UIImage?
     //MARK: - Actions
     @IBAction func dropDownSelection(_ sender: UIButton) {
         allcategories.forEach { (category) in
@@ -27,26 +27,13 @@ class AddTableViewController: UITableViewController {
                 self.view.layoutIfNeeded()
             })
         }
-        
     }
-    
-    enum Categories: String {
-        case all = "All"
-        
-        case food = "Food"
-        case party = "Party"
-        case money = "Money"
-        case tech = "Tech"
-        case health = "Health"
-        case favorite = "Favorite"
-        case funny = "Funny"
-    }
-    
+
     @IBOutlet var allcategories: [UIButton]!
     
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
         // Sets w.e the title of w.e category is clicked
-        guard let title = sender.currentTitle, let tidbitCategory = Categories(rawValue: title) else { return }
+        guard let title = sender.currentTitle, let tidbitCategory = PostController.Categories(rawValue: title) else { return }
         
         switch tidbitCategory {
         case .all :
@@ -69,12 +56,34 @@ class AddTableViewController: UITableViewController {
             print("Select a category button was tapped")
         }
     }
+    
+    @IBAction func postButtonTapped(_ sender: UIButton) {
+        print("post button was tapped")
+        guard let image = image,
+            let tidbit = enterTidbitTextField.text, !tidbit.isEmpty else { return }
+        //Create function
+//        PostController.shared.createPostWith(image: image, text: tidbit, category: Categories, username: "") { (success) in
+//        }
+        
+        
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toImageSelector"{
+            guard let destinationVC = segue.destination as? PhotoSelectorViewController else { return}
+            destinationVC.delegate = self
+        }
     }
 
+}
+
+extension AddHackViewController: PhotoSelectorViewControllerDelegate{
+    func selectPhoto(_ photo: UIImage) {
+    }
+    
+    
 }

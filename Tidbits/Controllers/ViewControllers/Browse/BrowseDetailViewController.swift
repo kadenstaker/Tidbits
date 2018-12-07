@@ -14,31 +14,46 @@ class BrowseDetailViewController: UIViewController {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailDateLabel: UILabel!
     
-
+    var post: Post?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //MARK: - Actions
-    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-    }
-    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-    }
     @IBAction func heartButtonTapped(_ sender: UIButton) {
     }
-    @IBAction func shareButtonTapped(_ sender: Any) {
-    }
+    //    @IBAction func shareButtonTapped(_ sender: Any) {
+    //    }
     @IBAction func otherButtonTapped(_ sender: UIButton) {
+        //        guard let post = p
+        let optionAlert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            let confirmDelete = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "YES", style: .destructive, handler: { (_) in
+                //            PostController.shared.delete(post: )
+            })
+            let cancelAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
+            confirmDelete.addAction(confirmAction)
+            confirmDelete.addAction(cancelAction)
+            self.present(confirmDelete, animated: true, completion: nil)
+        }
+        
+        let reportAction = UIAlertAction(title: "Report", style: .default) { (_) in
+            let reportController = UIAlertController(title: "", message: "Are you sure you want to report this post?", preferredStyle: .alert)
+            let confirmReport = UIAlertAction(title: "YES", style: .destructive, handler: { (_) in
+                //Action for report: Send an email to the creators or firebase
+            })
+            let cancelReport = UIAlertAction(title: "NO", style: .cancel, handler: nil)
+            reportController.addAction(confirmReport)
+            reportController.addAction(cancelReport)
+            self.present(reportController, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        optionAlert.addAction(deleteAction)
+        optionAlert.addAction(reportAction)
+        optionAlert.addAction(cancelAction)
+        self.present(optionAlert, animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -13,19 +13,104 @@
         <!--Profile-->
         <scene sceneID="QA9-oE-0LQ">
             <objects>
-                <viewController id="V45-M5-zM3" sceneMemberID="viewController">
+                <viewController id="V45-M5-zM3" customClass="ProfileViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujA-WI-bVk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="abstract-background-beach-355288" translatesAutoresizingMaskIntoConstraints="NO" id="TyF-WZ-6qg">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="201"/>
+                            </imageView>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-Eh-Wej">
+                                <rect key="frame" x="112" y="126" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fj3-Eh-Wej" secondAttribute="height" multiplier="1:1" id="xbz-F7-Rdw"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCY-TL-FkD">
+                                <rect key="frame" x="112" y="126" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OCY-TL-FkD" secondAttribute="height" multiplier="1:1" id="EQg-W3-twu"/>
+                                </constraints>
+                                <state key="normal" image="icons8-add-user-male-96"/>
+                                <connections>
+                                    <action selector="addProfileImageButtonTapped:" destination="V45-M5-zM3" eventType="touchUpInside" id="x8i-qf-r3y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8h-fR-4c9">
+                                <rect key="frame" x="16" y="555" width="343" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButton:" destination="V45-M5-zM3" eventType="touchUpInside" id="O5K-g0-Fri"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AbK-XO-ctB">
+                                <rect key="frame" x="67" y="318" width="240" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hcV-CA-BAg">
+                                <rect key="frame" x="67" y="377" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="YHs-j5-bJm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-KM-CrM">
+                                <rect key="frame" x="67" y="289" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OCY-TL-FkD" firstAttribute="top" secondItem="Fj3-Eh-Wej" secondAttribute="top" id="0V2-vk-UBR"/>
+                            <constraint firstItem="EXE-KM-CrM" firstAttribute="top" secondItem="TyF-WZ-6qg" secondAttribute="bottom" constant="88" id="2mA-ed-Tvg"/>
+                            <constraint firstItem="TyF-WZ-6qg" firstAttribute="leading" secondItem="ujA-WI-bVk" secondAttribute="leading" id="4E8-z1-bVr"/>
+                            <constraint firstItem="hcV-CA-BAg" firstAttribute="centerX" secondItem="t8h-fR-4c9" secondAttribute="centerX" id="4oE-gE-tTy"/>
+                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="AbK-XO-ctB" secondAttribute="trailing" constant="68" id="6Q7-5V-EaI"/>
+                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="hcV-CA-BAg" secondAttribute="trailing" constant="68" id="7T9-kL-ZWf"/>
+                            <constraint firstItem="Fj3-Eh-Wej" firstAttribute="leading" secondItem="aIj-gt-N4D" secondAttribute="leading" constant="112" id="9DQ-Pe-jVU"/>
+                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="EXE-KM-CrM" secondAttribute="trailing" constant="229" id="C1F-pU-AGV"/>
+                            <constraint firstItem="TyF-WZ-6qg" firstAttribute="top" secondItem="ujA-WI-bVk" secondAttribute="top" id="I2p-Z7-J3t"/>
+                            <constraint firstItem="OCY-TL-FkD" firstAttribute="bottom" secondItem="Fj3-Eh-Wej" secondAttribute="bottom" id="LJs-Cl-xVt"/>
+                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="Fj3-Eh-Wej" secondAttribute="trailing" constant="113" id="N5m-P0-izl"/>
+                            <constraint firstItem="t8h-fR-4c9" firstAttribute="top" secondItem="hcV-CA-BAg" secondAttribute="bottom" constant="50" id="XSW-gA-sAP"/>
+                            <constraint firstItem="EXE-KM-CrM" firstAttribute="top" secondItem="Fj3-Eh-Wej" secondAttribute="bottom" constant="13" id="bq6-9S-8fG"/>
+                            <constraint firstItem="OCY-TL-FkD" firstAttribute="leading" secondItem="Fj3-Eh-Wej" secondAttribute="leading" id="eWF-Cx-9Wk"/>
+                            <constraint firstItem="AbK-XO-ctB" firstAttribute="leading" secondItem="aIj-gt-N4D" secondAttribute="leading" constant="67" id="euc-LF-E8g"/>
+                            <constraint firstItem="AbK-XO-ctB" firstAttribute="top" secondItem="EXE-KM-CrM" secondAttribute="bottom" constant="8" id="fsB-QD-THD"/>
+                            <constraint firstItem="Fj3-Eh-Wej" firstAttribute="top" secondItem="aIj-gt-N4D" secondAttribute="top" constant="106" id="g0a-sx-wwO"/>
+                            <constraint firstItem="hcV-CA-BAg" firstAttribute="leading" secondItem="aIj-gt-N4D" secondAttribute="leading" constant="67" id="lSS-aY-mgo"/>
+                            <constraint firstItem="hcV-CA-BAg" firstAttribute="top" secondItem="AbK-XO-ctB" secondAttribute="bottom" constant="29" id="q2C-iN-fe8"/>
+                            <constraint firstItem="EXE-KM-CrM" firstAttribute="leading" secondItem="aIj-gt-N4D" secondAttribute="leading" constant="67" id="vad-Ro-6EO"/>
+                            <constraint firstItem="hcV-CA-BAg" firstAttribute="centerX" secondItem="TyF-WZ-6qg" secondAttribute="centerX" id="xUH-Hf-Zr5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aIj-gt-N4D"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="be1-c1-Bab"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="userProfile" id="be1-c1-Bab"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="aboutMeTextView" destination="hcV-CA-BAg" id="FRI-2U-2lD"/>
+                        <outlet property="defaultImage" destination="Fj3-Eh-Wej" id="Iya-74-VdQ"/>
+                        <outlet property="setProfilePicButton" destination="OCY-TL-FkD" id="Hq7-G9-VSz"/>
+                        <outlet property="userNameTextField" destination="AbK-XO-ctB" id="Pg5-nr-Q92"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5D-eF-sqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="391" y="121"/>
+            <point key="canvasLocation" x="389.60000000000002" y="120.98950524737631"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="abstract-background-beach-355288" width="5106" height="3404"/>
+        <image name="icons8-add-user-male-96" width="72" height="72"/>
+        <image name="userProfile" width="22.5" height="22.5"/>
+    </resources>
 </document>

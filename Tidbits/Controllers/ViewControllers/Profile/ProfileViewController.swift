@@ -1,40 +1,38 @@
 //
-//  PhotoSelectorViewController.swift
+//  ProfileViewController.swift
 //  Tidbits
 //
-//  Created by Xavier on 11/30/18.
+//  Created by Xavier on 12/3/18.
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
 import UIKit
 
-protocol PhotoSelectorViewControllerDelegate: class {
-    func selectPhoto(_ photo: UIImage)
-}
-
-class PhotoSelectorViewController: UIViewController {
+class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    
+    //MARK: - Outlets
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var aboutMeTextView: UITextView!
+    @IBOutlet weak var setProfilePicButton: UIButton!
     @IBOutlet weak var defaultImage: UIImageView!
-    @IBOutlet weak var selectPhotoButton: UIButton!
     
-    
-    
-    
-    
-    weak var delegate: PhotoSelectorViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectPhotoButton.setTitle("", for: .normal)
+//        setProfilePicButton.setImage(#imageLiteral(resourceName: "icons8-add-user-male-96"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        defaultImage.image = nil
+//        defaultImage.image = nil
     }
     
-    @IBAction func addPhotoButtonTapped(_ sender: UIButton) {
+    @IBAction func signOutButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func addProfileImageButtonTapped(_ sender: UIButton) {
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
 
@@ -59,24 +57,32 @@ class PhotoSelectorViewController: UIViewController {
 
         present(actionSheet, animated:  true)
     }
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
 }
-
-
-
-
-extension PhotoSelectorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension ProfileViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        selectPhotoButton.setTitle("", for: .normal)
+        setProfilePicButton.setTitle("", for: .normal)
         picker.dismiss(animated: true, completion: nil)
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            selectPhotoButton.setBackgroundImage(photo, for: .normal)
-            delegate?.selectPhoto(photo)
+            defaultImage.image = photo
+//            setProfilePicButton.setBackgroundImage(photo, for: .normal)
+            setProfilePicButton.setImage(nil, for: .normal)
+            
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }

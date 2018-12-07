@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add-->
+        <!--Add Table View Controller-->
         <scene sceneID="Qnu-p6-h2V">
             <objects>
                 <tableViewController id="D6D-ip-g3A" customClass="AddTableViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,11 +18,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="f2R-Fu-u8U">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4z-fZ-wVU">
+                                    <rect key="frame" x="317" y="8" width="43" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <state key="normal" title="Post"/>
+                                    <connections>
+                                        <action selector="postButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="msw-Gh-TTf"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="Q6I-YD-OYq">
+                            <tableViewSection id="Q6I-YD-OYq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="376" id="GiO-Hy-KHl">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="376"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="376"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiO-Hy-KHl" id="6Vl-wJ-isQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="375.5"/>
@@ -30,7 +47,7 @@
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vut-LZ-K9V">
                                                     <rect key="frame" x="16" y="56" width="343" height="310"/>
                                                     <connections>
-                                                        <segue destination="y7A-5Q-atN" kind="embed" id="5lJ-O7-isv"/>
+                                                        <segue destination="y7A-5Q-atN" kind="embed" identifier="toImageSelector" id="5lJ-O7-isv"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -44,16 +61,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-2" id="oy0-g5-RHe">
+                            <tableViewSection id="oy0-g5-RHe">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dpX-5z-lz2">
-                                        <rect key="frame" x="0.0" y="432" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="420" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dpX-5z-lz2" id="zwM-Ft-RDs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Tidbit" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qsS-4k-Rtd">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Tidbit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qsS-4k-Rtd">
                                                     <rect key="frame" x="16" y="7" width="343" height="29"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,13 +87,13 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-3" id="xci-5u-YAl">
+                            <tableViewSection id="xci-5u-YAl">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="247" id="ElF-t0-5Ld">
-                                        <rect key="frame" x="0.0" y="504" width="375" height="247"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="519" id="ElF-t0-5Ld">
+                                        <rect key="frame" x="0.0" y="464" width="375" height="519"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ElF-t0-5Ld" id="5nE-fg-Rd8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="518.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vx7-bZ-Baq">
@@ -92,6 +109,10 @@
                                                             <state key="normal" title="Select a Category">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="rM6-Iz-KA8"/>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="7Hf-oE-ldz"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khU-NW-oar">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -101,8 +122,11 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <state key="normal" title="All">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="iXO-Sr-yOK"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ8-eW-jIK">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -111,8 +135,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="LlV-3Y-Ih2"/>
                                                             </constraints>
                                                             <state key="normal" title="Food">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="OK0-sy-FcY"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKt-Dd-P7i">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -121,8 +148,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="Ttm-cX-2f1"/>
                                                             </constraints>
                                                             <state key="normal" title="Health">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="nLl-RD-WBN"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RD-9O-dHd">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -131,8 +161,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="fvK-EA-zxS"/>
                                                             </constraints>
                                                             <state key="normal" title="Money">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="dGe-WI-g8n"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-nS-b6K">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -141,8 +174,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="FuF-rB-7aK"/>
                                                             </constraints>
                                                             <state key="normal" title="Travel">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="QpJ-Fv-eJx"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0d-m0-H6Q" userLabel="Funny">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -151,10 +187,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="g0U-ul-B5O"/>
                                                             </constraints>
                                                             <state key="normal" title="Fashion">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="qq6-7X-1Q5"/>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="CCo-BJ-kY0"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5U-S7-PE5">
@@ -164,8 +201,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="dHi-qY-iQL"/>
                                                             </constraints>
                                                             <state key="normal" title="Favorite">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="FBh-uC-XDt"/>
+                                                            </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2R-Sg-Reu" userLabel="Party">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -174,8 +214,11 @@
                                                                 <constraint firstAttribute="height" constant="50" id="Inv-HF-WyO"/>
                                                             </constraints>
                                                             <state key="normal" title="Fashion">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="4nZ-0J-elj"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -215,15 +258,22 @@
                             <outlet property="delegate" destination="D6D-ip-g3A" id="0YO-4g-edb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Add" id="y9Z-fN-sWH"/>
+                    <tabBarItem key="tabBarItem" selectedImage="tabBarAdd" id="y9Z-fN-sWH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outletCollection property="allcategories" destination="E0d-m0-H6Q" collectionClass="NSMutableArray" id="GKJ-UJ-rs8"/>
+                        <outletCollection property="allcategories" destination="khU-NW-oar" collectionClass="NSMutableArray" id="hDV-9g-Lzc"/>
+                        <outletCollection property="allcategories" destination="FJ8-eW-jIK" collectionClass="NSMutableArray" id="lJr-8F-BGI"/>
+                        <outletCollection property="allcategories" destination="PKt-Dd-P7i" collectionClass="NSMutableArray" id="b0S-zi-HVv"/>
+                        <outletCollection property="allcategories" destination="0RD-9O-dHd" collectionClass="NSMutableArray" id="BWl-HJ-uuP"/>
+                        <outletCollection property="allcategories" destination="bEZ-nS-b6K" collectionClass="NSMutableArray" id="3tS-vr-UaM"/>
+                        <outletCollection property="allcategories" destination="E0d-m0-H6Q" collectionClass="NSMutableArray" id="p7E-cJ-Ige"/>
+                        <outletCollection property="allcategories" destination="n5U-S7-PE5" collectionClass="NSMutableArray" id="vRQ-Nu-1HF"/>
+                        <outletCollection property="allcategories" destination="s2R-Sg-Reu" collectionClass="NSMutableArray" id="MMw-QZ-0fK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFa-ay-jyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="54"/>
+            <point key="canvasLocation" x="1980" y="53.523238380809602"/>
         </scene>
         <!--Photo Selector View Controller-->
         <scene sceneID="cyu-ir-ZTg">
@@ -251,6 +301,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hBY-W3-Q2o" secondAttribute="trailing" constant="-16" id="ViZ-kF-tQl"/>
                             <constraint firstItem="hBY-W3-Q2o" firstAttribute="top" secondItem="VgN-7k-F2s" secondAttribute="topMargin" id="udZ-b1-4aQ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ER5-QS-fSD"/>
                     </view>
                     <connections>
                         <outlet property="defaultImage" destination="mB9-Nu-sx5" id="CIp-3k-i66"/>
@@ -264,5 +315,6 @@
     </scenes>
     <resources>
         <image name="smallImage" width="64" height="64"/>
+        <image name="tabBarAdd" width="22.5" height="22.5"/>
     </resources>
 </document>
