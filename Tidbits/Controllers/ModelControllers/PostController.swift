@@ -76,7 +76,7 @@ class PostController {
         }
     }
     
-
+    
     func fetchPosts(completion: @escaping (Bool) -> Void) {
         let ref = FirebaseManager.databaseRef.child("Post")
         
@@ -103,30 +103,5 @@ class PostController {
         // func delete(post: Post)
         func delete(post: Post) {
         }
-        
-        // MARK: - Mock data
-    
-    // func update(post: Post)
-    func update(post: Post, with image: UIImage?, text: String, category: String) {
-    }
-    
-    // func delete(post: Post)
-    func delete(post: Post) {
-        guard let postIndex = posts?.firstIndex(of: post) else { return }
-        posts?.remove(at: postIndex)
-        // save
-    }
-    
-    // MARK: - Local Persistence
-    func fileURL() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentDirectory = paths[0]
-        let filename = "tidbits.json"
-        let fullURL = documentDirectory.appendingPathComponent(filename)
-        return fullURL
-    }
-    
-    func saveToPersistentStore() {
-        let encoder = JSONEncoder()
     }
 }
