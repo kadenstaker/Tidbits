@@ -15,15 +15,33 @@ class InternalUserController {
     
     // Properties
     var users: [InternalUser]?
-    var posts: [Post]?
+    var posts: [Post] = []
     
     // Initializer
     private init () {}
     
     // MARK: - Functions
-    // func logInUser
+    func loginUser(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.logInUser(withEmail: email, password: password) { (success) in
+            if success {
+                completion(true)
+            } else {
+                print("There was an error in \(#function)")
+                completion(false)
+            }
+        }
+    }
     
-    // func createUserWith(username: String, password: String)
+    func createUserWith(email: String, password: String, username: String, completion: @escaping (Bool) -> Void) {
+        FirebaseManager.createUser(withEmail: email, password: password, username: username) { (success) in
+            if success {
+                completion(true)
+            } else {
+                print("There was an error in \(#function)")
+                completion(false)
+            }
+        }
+    }
     
     // func blockUser(user: InternalUser)
     

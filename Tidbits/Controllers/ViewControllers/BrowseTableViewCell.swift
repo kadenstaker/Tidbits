@@ -25,6 +25,12 @@ class BrowseTableViewCell: UITableViewCell {
         // Initialization code
     }
     
+    var post: Post? {
+        didSet{
+            updateViews()
+        }
+    }
+    
     //Probs have to create an array to append the post the user favorite and hearted
     
     //MARK: - Actions
@@ -42,14 +48,15 @@ class BrowseTableViewCell: UITableViewCell {
             heartButton.setImage(#imageLiteral(resourceName: "defaultHeart"), for: .normal)
         }
     }
-    @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
+    
+    func updateViews() {
+        guard let post = post else { return }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
+    // I just hid the share button I didn't delete it.
+//    @IBAction func shareButtonTapped(_ sender: UIButton) {
+////        let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
+//    }
+    
     
 }

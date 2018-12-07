@@ -13,6 +13,8 @@ class BrowseTableViewController: UITableViewController {
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -21,11 +23,12 @@ class BrowseTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return PostController.shared.posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "tidbitCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
+        let _ = PostController.shared.posts?[indexPath.row]
 
         // Configure the cell...
 
@@ -37,19 +40,26 @@ class BrowseTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toDetailVC"{
+            guard let destinationVC = segue.destination as? BrowseDetailViewController else { return }
+            let indexPath = tableView.indexPathForSelectedRow
+            let hack = PostController.shared.posts?[indexPath?.row ?? 0]
+            destinationVC.post = hack
+        }
     }
 
 }
 
 extension BrowseTableViewController: UISearchBarDelegate{
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        <#code#>
-//    }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        <#code#>
-//    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        tableView.reloadData()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
 }

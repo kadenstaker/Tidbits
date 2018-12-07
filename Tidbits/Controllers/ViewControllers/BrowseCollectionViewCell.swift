@@ -13,4 +13,16 @@ class BrowseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var numberOfItemLabel: UILabel!
     
+    var post: Post? {
+        didSet{
+            
+        }
+    }
+    
+    func updateViews(){
+        guard let post = post else { return }
+        categoryNameLabel.text = post.category
+//        iconImageView.image = UIImage(named: post.)
+    }
+    
 }
