@@ -17,15 +17,7 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     // MARK: UICollectionViewDataSource
 
@@ -37,10 +29,12 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrowseCollectionViewCell else { return UICollectionViewCell()}
-        guard let post = PostController.shared.posts?[indexPath.row] else { return UICollectionViewCell()}
-        cell.post = post
-        //Instead of making the post in the postController an optional array, make it an array = []
-        cell.categoryNameLabel.text = post.category
+        
+//         Instead of doing post controller.sh
+//        guard let post = PostController.shared.posts?[indexPath.row] else { return UICollectionViewCell()}
+//        cell.post = post
+//        Instead of making the post in the postController an optional array, make it an array = []
+//        cell.categoryNameLabel.text = post.category
 //        cell.numberOfItemLabel.text = "\(PostController.shared.posts?.count ?? 0)"
         _ = indexPath.item
         cell.layer.cornerRadius = 20

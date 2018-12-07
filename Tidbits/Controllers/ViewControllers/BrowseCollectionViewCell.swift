@@ -22,7 +22,7 @@ class BrowseCollectionViewCell: UICollectionViewCell {
     func updateViews(){
         guard let post = post else { return }
         categoryNameLabel.text = post.category
-        iconImageView.image = UIImage(named: post.)
+//        iconImageView.image = UIImage(named: post.)
     }
     
 }

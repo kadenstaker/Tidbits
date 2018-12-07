@@ -17,6 +17,18 @@ class PostController {
     // Properties
     var posts: [Post]?
     
+    enum Categories: String {
+        case all = "All"
+        
+        case food = "Food"
+        case party = "Party"
+        case money = "Money"
+        case tech = "Tech"
+        case health = "Health"
+        case favorite = "Favorite"
+        case funny = "Funny"
+    }
+    
     // Initializer
     private init() {}
     
