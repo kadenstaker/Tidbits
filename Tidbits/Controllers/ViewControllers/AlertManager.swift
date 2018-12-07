@@ -39,5 +39,4 @@ class AlertManager {
 //Delete account: Are you sure you want to delete your account
 //No internet detection
 //If they try to post without a Account: Alert" You can't post without an Account"
-//
 

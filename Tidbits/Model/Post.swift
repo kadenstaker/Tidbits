@@ -39,6 +39,16 @@ class Post {
         self.category = category
         self.createdByID = createdByID
     }
+    
+    init?(postDictionary: [String : Any]) {
+        guard let text = postDictionary["text"] as? String,
+            let category = postDictionary["category"] as? String
+            else { return nil }
+        
+        self.text = text
+        self.category = category
+        self.createdByID = "sdas"
+    }
 }
 
 extension Post: Equatable {
