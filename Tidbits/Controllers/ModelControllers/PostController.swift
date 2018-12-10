@@ -26,7 +26,6 @@ class PostController {
     
     enum Categories: String {
         case all = "All"
-        
         case food = "Food"
         case party = "Party"
         case money = "Money"
@@ -36,10 +35,12 @@ class PostController {
         case funny = "Funny"
     }
     
+    let categories = ["All", "Food", "Party", "Money", "Tech", "Health", "Favorite", "Favorite", "Funny"]
+    
     // Initializer
     private init() {}
     
-    // func createPostWith(image: UIImage?, text: String)
+    // Functions
     func createPostWith(image: UIImage?, text: String, category: String, username: String, completion: @escaping (Bool) -> Void) {
         
         let post = Post(image: image, text: text, category: category, createdByID: username)
