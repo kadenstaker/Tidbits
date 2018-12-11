@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add-->
+        <!--Add Hack View Controller-->
         <scene sceneID="Qnu-p6-h2V">
             <objects>
                 <tableViewController id="D6D-ip-g3A" customClass="AddHackViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFa-ay-jyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="53.523238380809602"/>
+            <point key="canvasLocation" x="1719" y="196"/>
         </scene>
         <!--Photo Selector View Controller-->
         <scene sceneID="cyu-ir-ZTg">

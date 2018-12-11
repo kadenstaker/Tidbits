@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "collectCell"
 
-class BrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class BrowseCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var customCollectionView: UICollectionView!
     @IBOutlet weak var customTabbar1: UITabBarItem!
@@ -22,13 +22,8 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
 
-    // MARK: - Navigation
-
     // MARK: UICollectionViewDataSource
-
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
          return PostController.shared.categories.count
     }
     
@@ -64,21 +59,30 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
         cell.category = category
         cell.restorationIdentifier = category
         _ = indexPath.item
-        cell.layer.cornerRadius = 20
-        cell.contentView.layer.cornerRadius = 20
+        cell.layer.cornerRadius = 10
+        cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderColor = UIColor.white.cgColor
         cell.contentView.layer.borderWidth = 5
         cell.contentView.layer.backgroundColor = UIColor.white.cgColor
         cell.backgroundColor = UIColor.white
-        //        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowRadius = 10
-        cell.layer.shadowOpacity = 0.4
+        cell.layer.shadowRadius = 5
+        cell.layer.shadowOpacity = 0.2
         cell.layer.masksToBounds = false
-//                cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
-//                cell.layer.shadowOffset = CGSize(width: 1.0, height: 0.0)
-    
-        // Configure the cell
-    
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let widthOfScreen = view.frame.width
+        return CGSize(width: (widthOfScreen - 3 * 16) / 2 + 10, height: ((widthOfScreen - 3 * 16) / 2) + 50)
+    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 16, left: 10, bottom: 50, right: 10)
+//    }
+    
+        // MARK: - Navigation
+    
+    
 }
+

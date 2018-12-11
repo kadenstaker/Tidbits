@@ -16,6 +16,7 @@ class FirebaseManager {
     // MARK: - Properties
     static var databaseRef: DatabaseReference = Database.database().reference()
     static var storeRef: StorageReference = Storage.storage().reference()
+    static var handle: AuthStateDidChangeListenerHandle?
     
     // MARK: - User Management
     static public func signInAnonymously(completion: @escaping (Bool) -> Void) {
@@ -53,38 +54,44 @@ class FirebaseManager {
                 completion(false)
                 return
             }
-            let ref = databaseRef.child("Users").child(username)
             
-            let userDictionary: [String : Any] = ["email" : email,
-                                                  "password" : password,
-                                                  "username" : username]
-            
-            ref.setValue(userDictionary, andPriority: nil, withCompletionBlock: { (error, _) in
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            changeRequest?.commitChanges(completion: { (error) in
                 if let error = error {
                     print(error)
                     completion(false)
                     return
                 }
-                completion(true)
+                let ref = databaseRef.child("Users").child(username)
+                
+                let userDictionary: [String : Any] = ["email" : email,
+                                                      "username" : username]
+                
+                ref.setValue(userDictionary, andPriority: nil, withCompletionBlock: { (error, _) in
+                    if let error = error {
+                        print(error)
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                })
             })
         }
     }
     
-    func getUser(completion: @escaping (Bool) -> Void) {
-        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            if Auth.auth().currentUser != nil {
-                // User is signed in.
-                // ...
-            } else {
-                // No user is signed in.
-                // ...
+    static func getUser(completion: @escaping (Any?) -> Void) {
+        if let firebaseUser = Auth.auth().currentUser, let username = firebaseUser.displayName {
+            let ref = FirebaseManager.databaseRef.child("Users").child(username)
+            FirebaseManager.fetch(from: ref) { (internalUser) in
+                completion(internalUser)
             }
+        } else {
+            completion(nil)
         }
-        let userID = Auth.auth().currentUser?.uid
     }
     
     static public func fetch(from ref: DatabaseReference, completion: @escaping (Any?) -> Void) {
-        
         ref.observeSingleEvent(of: .value) { (snapshot) in
             completion(snapshot.value)
         }
@@ -115,7 +122,6 @@ class FirebaseManager {
     // MARK: - Firebase Storage
     
     static public func save(data: Data, to ref: StorageReference, completion: @escaping (StorageMetadata?, Error?) -> Void) {
-
         ref.putData(data, metadata: nil) { (metadata, error) in
             if let error = error {
                 print("There was an error saving data to the storage.")
