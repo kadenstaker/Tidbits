@@ -26,5 +26,4 @@ class BrowseCollectionViewCell: UICollectionViewCell {
         categoryNameLabel.text = category
         iconImageView.image = UIImage(named: category)
     }
-    
 }

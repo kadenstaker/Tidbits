@@ -14,8 +14,8 @@ class InternalUserController {
     static let shared = InternalUserController()
     
     // Properties
-    var users: [InternalUser]?
-    var posts: [Post] = []
+    var loggedInUser: InternalUser?
+    var posts: [Post]? = []
     
     // Initializer
     private init () {}
@@ -43,7 +43,15 @@ class InternalUserController {
         }
     }
     
+    func getCurrentUser(completion: @escaping (Bool) -> Void) {
+        FirebaseManager.getUser { (internalUserDictionary) in
+            guard let internalUserDictionary = internalUserDictionary as? [String : Any], let internalUser = InternalUser(dictionary: internalUserDictionary) else { completion(false) ; return }
+            self.loggedInUser = internalUser
+            }
+        }
+    }
+    
     // func blockUser(user: InternalUser)
     
     // func checkIfLoggedIn()
-}
+

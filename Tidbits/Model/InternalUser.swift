@@ -26,4 +26,13 @@ class InternalUser {
         self.postIDs = postIDs
         self.email = email
     }
+    
+    init?(dictionary: [String : Any]) {
+        guard let email = dictionary["email"] as? String,
+        let username = dictionary["username"] as? String
+            else { return nil }
+        
+        self.email = email
+        self.username = username
+    }
 }

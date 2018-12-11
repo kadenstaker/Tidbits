@@ -14,7 +14,7 @@ class BrowseTableViewController: UITableViewController {
     @IBOutlet weak var searchbar: UISearchBar!
     
        var posts: [Post]?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.estimatedRowHeight = 120
@@ -22,7 +22,6 @@ class BrowseTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
          return self.posts?.count ?? 0
