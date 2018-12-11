@@ -13,18 +13,27 @@ class BrowseTableViewController: UITableViewController {
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
+       var posts: [Post]?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = 120
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostController.shared.posts?.count ?? 0
+        // #warning Incomplete implementation, return the number of rows
+         return self.posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
-        let _ = PostController.shared.posts?[indexPath.row]
+        guard let post = self.posts?[indexPath.row] else { return UITableViewCell() }
+        // Configure the cell...
+        cell.post = post
+//        cell.detailTextLabel?.text = post.timestamp.formatLong()
+
         return cell
     }
 
@@ -48,6 +57,7 @@ extension BrowseTableViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         tableView.reloadData()
+        searchBar.resignFirstResponder()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

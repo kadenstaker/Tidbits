@@ -8,17 +8,22 @@
 
 import UIKit
 
+//Declare Protocol
+protocol BrowseTableViewCellDelegate: class {
+    func isFavoritedImageValueChanged(cell: BrowseTableViewCell)
+}
+
 class BrowseTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var tidbitImageView: UIImageView!
     @IBOutlet weak var tidbitTextLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var heartButton: UIButton!
-    @IBOutlet weak var shareButton: UIButton!
+//    @IBOutlet weak var shareButton: UIButton!
     
-    var isChosen: Bool = false
+    //declaring the delegates variable
+    weak var delegate: BrowseTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,23 +39,17 @@ class BrowseTableViewCell: UITableViewCell {
     //Probs have to create an array to append the post the user favorite and hearted
     
     //MARK: - Actions
-    @IBAction func starButtonTapped(_ sender: UIButton) {
-        if isChosen == true {
-            starButton.setImage(#imageLiteral(resourceName: "iconfinder_star_285661"), for: .normal)
-        } else {
-            starButton.setImage(#imageLiteral(resourceName: "defaultStar"), for: .normal)
-        }
-    }
+    
     @IBAction func heartButtonTapped(_ sender: UIButton) {
-        if isChosen {
-            heartButton.setImage(#imageLiteral(resourceName: "iconfinder_Instagram_UI-07_2315589"), for: .normal)
-        }else {
-            heartButton.setImage(#imageLiteral(resourceName: "defaultHeart"), for: .normal)
-        }
+        //Call the delegate function
+        delegate?.isFavoritedImageValueChanged(cell: self)
     }
     
     func updateViews() {
         guard let post = post else { return }
+        tidbitTextLabel.text = post.text
+//        tidbitImageView.image = post.image
+//        dateLabel.text = post.timestamp.formatLong()
     }
     
     // I just hid the share button I didn't delete it.

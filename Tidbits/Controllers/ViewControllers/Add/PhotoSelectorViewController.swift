@@ -26,7 +26,9 @@ class PhotoSelectorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectPhotoButton.setTitle("", for: .normal)
+//        selectPhotoButton.setTitle("", for: .normal)
+//        selectPhotoButton.setTitleColor(.black, for: .normal)
+        selectPhotoButton.setImage(#imageLiteral(resourceName: "photoPlaceholder"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

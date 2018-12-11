@@ -13,24 +13,52 @@ private let reuseIdentifier = "collectCell"
 class BrowseCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var customCollectionView: UICollectionView!
+    @IBOutlet weak var customTabbar1: UITabBarItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        PostController.shared.fetchPosts { (success) in
+            //Activity loading thing goes in here
+        }
     }
 
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        // #warning Incomplete implementation, return the number of items
+         return PostController.shared.categories.count
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? BrowseCollectionViewCell,
+            let destinationVC = segue.destination as? BrowseTableViewController else { return }
+        switch cell.restorationIdentifier {
+        case "All":
+            destinationVC.posts = PostController.shared.posts
+        case "Health":
+            destinationVC.posts = PostController.shared.healthPosts
+        case "Food":
+            destinationVC.posts = PostController.shared.foodPosts
+        case "Money":
+            destinationVC.posts = PostController.shared.moneyPosts
+        case "Tech":
+            destinationVC.posts = PostController.shared.techPosts
+        case "Funny":
+            destinationVC.posts = PostController.shared.funnyPosts
+        case "Party":
+            destinationVC.posts = PostController.shared.partyPosts
+        case "Favorite":
+            destinationVC.posts = PostController.shared.favoritePosts
+        default:
+            print("Something went wrong")
+        }
+    }
+    
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrowseCollectionViewCell else { return UICollectionViewCell()}
-        
-//         Instead of doing post controller.sh
-//        guard let post = PostController.shared.posts?[indexPath.row] else { return UICollectionViewCell()}
-//        cell.post = post
-//        Instead of making the post in the postController an optional array, make it an array = []
-//        cell.categoryNameLabel.text = post.category
-//        cell.numberOfItemLabel.text = "\(PostController.shared.posts?.count ?? 0)"
+        let category = PostController.shared.categories[indexPath.row]
+        cell.category = category
+        cell.restorationIdentifier = category
         _ = indexPath.item
         cell.layer.cornerRadius = 10
         cell.contentView.layer.cornerRadius = 10

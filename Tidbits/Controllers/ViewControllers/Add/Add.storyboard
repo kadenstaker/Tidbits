@@ -116,7 +116,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khU-NW-oar">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="8Sp-Ai-AGM"/>
                                                             </constraints>
@@ -130,7 +130,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ8-eW-jIK">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="LlV-3Y-Ih2"/>
                                                             </constraints>
@@ -143,7 +143,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKt-Dd-P7i">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Ttm-cX-2f1"/>
                                                             </constraints>
@@ -156,7 +156,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RD-9O-dHd">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="fvK-EA-zxS"/>
                                                             </constraints>
@@ -169,7 +169,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-nS-b6K">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="FuF-rB-7aK"/>
                                                             </constraints>
@@ -182,7 +182,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0d-m0-H6Q" userLabel="Funny">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795380000005" green="0.44421553940000003" blue="0.37912029110000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="g0U-ul-B5O"/>
                                                             </constraints>
@@ -196,7 +196,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5U-S7-PE5">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="dHi-qY-iQL"/>
                                                             </constraints>
@@ -209,7 +209,7 @@
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2R-Sg-Reu" userLabel="Party">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                            <color key="backgroundColor" red="0.51147795376712324" green="0.44421553938356162" blue="0.3791202910958904" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.90588235294117647" green="0.92549019607843142" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Inv-HF-WyO"/>
                                                             </constraints>
@@ -258,7 +258,7 @@
                             <outlet property="delegate" destination="D6D-ip-g3A" id="0YO-4g-edb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" selectedImage="tabBarAdd" id="y9Z-fN-sWH"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="tabBarAdd" selectedImage="tabBarAdd" id="y9Z-fN-sWH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outletCollection property="allcategories" destination="khU-NW-oar" collectionClass="NSMutableArray" id="hDV-9g-Lzc"/>

@@ -13,10 +13,13 @@ class AddHackViewController: UITableViewController {
     //MARK: Outlets
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var enterTidbitTextField: UITextField!
+    @IBOutlet weak var customTabbar2: UITabBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    let viewController:UIViewController = UIStoryboard(name: "Browse", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
     
     var image: UIImage?
     //MARK: - Actions
@@ -61,9 +64,10 @@ class AddHackViewController: UITableViewController {
         print("post button was tapped")
         guard let image = image,
             let tidbit = enterTidbitTextField.text, !tidbit.isEmpty else { return }
-        //Create function
-//        PostController.shared.createPostWith(image: image, text: tidbit, category: Categories, username: "") { (success) in
-//        }
+//        Create function
+        PostController.shared.createPostWith(image: image, text: tidbit, category: "", username: "") { (post) in
+        }
+        self.tabBarController?.selectedIndex = 0
         
         
     }

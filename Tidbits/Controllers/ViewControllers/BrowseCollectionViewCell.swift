@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
+//call delegate in the child
+
 import UIKit
 
 class BrowseCollectionViewCell: UICollectionViewCell {
@@ -13,15 +15,15 @@ class BrowseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var numberOfItemLabel: UILabel!
     
-    var post: Post? {
-        didSet{
-            
+    var category: String? {
+        didSet {
+            updateViews()
         }
     }
     
     func updateViews(){
-        guard let post = post else { return }
-        categoryNameLabel.text = post.category
-//        iconImageView.image = UIImage(named: post.)
+        guard let category = category else { return }
+        categoryNameLabel.text = category
+        iconImageView.image = UIImage(named: category)
     }
 }

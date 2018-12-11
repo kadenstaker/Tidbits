@@ -84,7 +84,7 @@ class PostController {
         FirebaseManager.fetch(from: ref) { (fetchedPosts) in
             guard let postDictionaries = fetchedPosts as? [String : [String : Any]] else { completion(false) ; return }
             self.posts = postDictionaries.compactMap { Post(postDictionary: $0.value) }
-            
+
             self.techPosts = self.posts?.filter{ $0.category == "Tech" }
             self.foodPosts = self.posts?.filter{ $0.category == "Food" }
             self.techPosts = self.posts?.filter{ $0.category == "Tech" }
