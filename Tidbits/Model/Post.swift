@@ -24,7 +24,7 @@ class Post {
         var dictionary = [
             "text" : text,
             "category" : category,
-            "createdByID" : createdByID
+            "createdByID" : "adsf"
         ]
         
         if let imageURL = imageURL {
@@ -50,6 +50,9 @@ class Post {
             else { return nil }
 //        let timestamp = postDictionary["timestamp"] as? Date
         
+        if let imageURL = postDictionary["imageURL"] as? String {
+            self.imageURL = imageURL
+        }
         self.text = text
         self.category = category
         self.createdByID = "sdas"

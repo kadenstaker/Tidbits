@@ -121,17 +121,24 @@ class FirebaseManager {
     
     // MARK: - Firebase Storage
     
-    static public func save(data: Data, to ref: StorageReference, completion: @escaping (StorageMetadata?, Error?) -> Void) {
+    static public func save(data: Data, to ref: StorageReference, completion: @escaping (StorageMetadata?, Error?, String?) -> Void) {
         ref.putData(data, metadata: nil) { (metadata, error) in
             if let error = error {
-                print("There was an error saving data to the storage.")
-                completion(nil, error)
+                print("There was an error saving data to the storage.: \(error.localizedDescription)")
+                completion(nil, error, nil)
                 return
             }
-            guard let metadata = metadata else { completion(nil, error) ; return }
-            completion(metadata, nil)
+            guard let metadata = metadata else { completion(nil, error, nil) ; return }
+            ref.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print("There was an error downloading the storage reference URL: \(error.localizedDescription)")
+                    completion(metadata, error, nil)
+                }
+                guard let url = url else { completion(metadata, error, nil) ; return }
+                let imageURLAsString = url.absoluteString
+                completion(metadata, nil, imageURLAsString)
+            })
         }
-        
     }
 }
 

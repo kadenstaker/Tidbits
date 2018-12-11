@@ -18,10 +18,6 @@ class PhotoSelectorViewController: UIViewController {
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var selectPhotoButton: UIButton!
     
-    
-    
-    
-    
     weak var delegate: PhotoSelectorViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -72,7 +68,7 @@ extension PhotoSelectorViewController: UIImagePickerControllerDelegate, UINaviga
         picker.dismiss(animated: true, completion: nil)
         if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
-            selectPhotoButton.setBackgroundImage(photo, for: .normal)
+            selectPhotoButton.setImage(photo, for: .normal)
             delegate?.selectPhoto(photo)
         }
     }

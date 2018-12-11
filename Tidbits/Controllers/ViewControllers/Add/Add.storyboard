@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Hack View Controller-->
+        <!--Add-->
         <scene sceneID="Qnu-p6-h2V">
             <objects>
                 <tableViewController id="D6D-ip-g3A" customClass="AddHackViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,6 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="rM6-Iz-KA8"/>
                                                                 <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="7Hf-oE-ldz"/>
                                                             </connections>
                                                         </button>
@@ -125,7 +124,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="iXO-Sr-yOK"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="8KW-sx-lRM"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJ8-eW-jIK">
@@ -138,7 +137,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="OK0-sy-FcY"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="NQP-8j-SnD"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKt-Dd-P7i">
@@ -151,7 +150,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="nLl-RD-WBN"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="dXq-Ne-5dW"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RD-9O-dHd">
@@ -164,7 +163,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="dGe-WI-g8n"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="7Yp-9Y-c8o"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEZ-nS-b6K">
@@ -177,7 +176,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="QpJ-Fv-eJx"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="ZzA-YE-fXD"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0d-m0-H6Q" userLabel="Funny">
@@ -190,8 +189,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="qq6-7X-1Q5"/>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="CCo-BJ-kY0"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="r0W-NH-4SZ"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5U-S7-PE5">
@@ -204,7 +202,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="FBh-uC-XDt"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="IGx-SW-a9Q"/>
                                                             </connections>
                                                         </button>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2R-Sg-Reu" userLabel="Party">
@@ -217,7 +215,7 @@
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="dropDownSelection:" destination="D6D-ip-g3A" eventType="touchUpInside" id="4nZ-0J-elj"/>
+                                                                <action selector="categoryButtonTapped:" destination="D6D-ip-g3A" eventType="touchUpInside" id="J0i-Gz-HpC"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -261,6 +259,7 @@
                     <tabBarItem key="tabBarItem" title="Add" image="tabBarAdd" selectedImage="tabBarAdd" id="y9Z-fN-sWH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="enterTidbitTextField" destination="qsS-4k-Rtd" id="N7t-gJ-TDp"/>
                         <outletCollection property="allcategories" destination="khU-NW-oar" collectionClass="NSMutableArray" id="hDV-9g-Lzc"/>
                         <outletCollection property="allcategories" destination="FJ8-eW-jIK" collectionClass="NSMutableArray" id="lJr-8F-BGI"/>
                         <outletCollection property="allcategories" destination="PKt-Dd-P7i" collectionClass="NSMutableArray" id="b0S-zi-HVv"/>
