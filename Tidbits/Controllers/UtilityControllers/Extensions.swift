@@ -6,4 +6,14 @@
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension Date {
+    func formatLong() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        let formattedDate = formatter.string(from: self)
+        return formattedDate
+    }
+}
+

@@ -19,6 +19,12 @@ class BrowseDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
+    }
+    
+    func updateViews() {
+        guard let post = post else { return }
+        detailImageView.image = post.image
     }
     
     //MARK: - Actions

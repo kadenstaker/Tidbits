@@ -17,6 +17,8 @@ class BrowseTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        tableView.estimatedRowHeight = 120
+        tableView.rowHeight = 120
     }
 
     // MARK: - Table view data source
@@ -31,6 +33,7 @@ class BrowseTableViewController: UITableViewController {
         guard let post = self.posts?[indexPath.row] else { return UITableViewCell() }
         // Configure the cell...
         cell.post = post
+//        cell.detailTextLabel?.text = post.timestamp.formatLong()
 
         return cell
     }
@@ -55,6 +58,7 @@ extension BrowseTableViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text, !searchText.isEmpty else { return }
         tableView.reloadData()
+        searchBar.resignFirstResponder()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

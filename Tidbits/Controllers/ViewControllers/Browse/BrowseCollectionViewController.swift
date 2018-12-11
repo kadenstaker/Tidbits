@@ -13,6 +13,7 @@ private let reuseIdentifier = "collectCell"
 class BrowseViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var customCollectionView: UICollectionView!
+    @IBOutlet weak var customTabbar1: UITabBarItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +63,6 @@ class BrowseViewController: UIViewController, UICollectionViewDataSource, UIColl
         let category = PostController.shared.categories[indexPath.row]
         cell.category = category
         cell.restorationIdentifier = category
-        
-//         Instead of doing post controller.sh
-//        guard let post = PostController.shared.posts?[indexPath.row] else { return UICollectionViewCell()}
-//        cell.post = post
-//        Instead of making the post in the postController an optional array, make it an array = []
-//        cell.categoryNameLabel.text = post.category
-//        cell.numberOfItemLabel.text = "\(PostController.shared.posts?.count ?? 0)"
         _ = indexPath.item
         cell.layer.cornerRadius = 20
         cell.contentView.layer.cornerRadius = 20

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
+//call delegate in the child
+
 import UIKit
 
 class BrowseCollectionViewCell: UICollectionViewCell {

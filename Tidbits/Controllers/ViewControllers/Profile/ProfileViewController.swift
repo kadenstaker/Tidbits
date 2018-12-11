@@ -15,20 +15,18 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var setProfilePicButton: UIButton!
     @IBOutlet weak var defaultImage: UIImageView!
+    @IBOutlet weak var customizedSignOutButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setProfilePicButton.setImage(#imageLiteral(resourceName: "icons8-add-user-male-96"), for: .normal)
+        customizedSignOutButton.setTitleColor(.black, for: .normal)
+        customizedSignOutButton.layer.cornerRadius = 8
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        defaultImage.image = nil
-    }
-    
-    @IBAction func signOutButton(_ sender: UIButton) {
-        
     }
     
     @IBAction func addProfileImageButtonTapped(_ sender: UIButton) {

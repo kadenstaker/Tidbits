@@ -13,9 +13,13 @@
 		19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF321B0A13800619398 /* BrowseDetailViewController.swift */; };
 		19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF521B0B50200619398 /* BrowseTableViewCell.swift */; };
 		191F15C821B1C64400160F3D /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15C721B1C64400160F3D /* AlertManager.swift */; };
-		191F15CA21B1C65300160F3D /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15C921B1C65300160F3D /* DateManager.swift */; };
 		191F15CC21B1F15300160F3D /* AddHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CB21B1F15300160F3D /* AddHackViewController.swift */; };
 		191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */; };
+		193466C421BF15A700145B0F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466C321BF15A700145B0F /* Extensions.swift */; };
+		193466C621BF369B00145B0F /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193466C521BF369B00145B0F /* SignIn.storyboard */; };
+		193466C921BF372000145B0F /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 193466C821BF372000145B0F /* SignUp.storyboard */; };
+		193466CC21BF3AED00145B0F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466CB21BF3AED00145B0F /* SignInViewController.swift */; };
+		193466CE21BF3AFD00145B0F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466CD21BF3AFD00145B0F /* SignUpViewController.swift */; };
 		1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962525821B5F31F004C2D58 /* ProfileViewController.swift */; };
 		C78B82500767E46D30B7E390 /* Pods_Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */; };
 		FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC3B921AC9D070092C3F8 /* AppDelegate.swift */; };
@@ -41,9 +45,13 @@
 		19123CF321B0A13800619398 /* BrowseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseDetailViewController.swift; sourceTree = "<group>"; };
 		19123CF521B0B50200619398 /* BrowseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrowseTableViewCell.swift; path = Tidbits/Controllers/ViewControllers/BrowseTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		191F15C721B1C64400160F3D /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertManager.swift; path = Tidbits/Controllers/ViewControllers/AlertManager.swift; sourceTree = SOURCE_ROOT; };
-		191F15C921B1C65300160F3D /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateManager.swift; path = Tidbits/Controllers/ViewControllers/DateManager.swift; sourceTree = SOURCE_ROOT; };
 		191F15CB21B1F15300160F3D /* AddHackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHackViewController.swift; sourceTree = "<group>"; };
 		191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		193466C321BF15A700145B0F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		193466C521BF369B00145B0F /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		193466C821BF372000145B0F /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		193466CB21BF3AED00145B0F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		193466CD21BF3AFD00145B0F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1962525821B5F31F004C2D58 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tidbits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F00541D6632FC5B52AC218 /* Pods-Tidbits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +84,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193466C721BF36BE00145B0F /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				193466C521BF369B00145B0F /* SignIn.storyboard */,
+				193466CB21BF3AED00145B0F /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		193466CA21BF373200145B0F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				193466C821BF372000145B0F /* SignUp.storyboard */,
+				193466CD21BF3AFD00145B0F /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		7D9B1E6B75638AAB898D9C22 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +195,8 @@
 			children = (
 				FAD0950021B0532900C999CD /* Browse */,
 				FAD0950121B0533000C999CD /* Add */,
+				193466C721BF36BE00145B0F /* SignIn */,
+				193466CA21BF373200145B0F /* SignUp */,
 				FAD0950221B0533500C999CD /* Profile */,
 			);
 			path = ViewControllers;
@@ -224,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				191F15C721B1C64400160F3D /* AlertManager.swift */,
-				191F15C921B1C65300160F3D /* DateManager.swift */,
+				193466C321BF15A700145B0F /* Extensions.swift */,
 				FAD0951021B0D1F600C999CD /* FirebaseManager.swift */,
 			);
 			path = UtilityControllers;
@@ -292,10 +320,12 @@
 			files = (
 				FA5EC3C421AC9D080092C3F8 /* LaunchScreen.storyboard in Resources */,
 				FAD094F521B0510900C999CD /* Browse.storyboard in Resources */,
+				193466C921BF372000145B0F /* SignUp.storyboard in Resources */,
 				FAD094F221B04FEE00C999CD /* GoogleService-Info.plist in Resources */,
 				FA5EC3C121AC9D080092C3F8 /* Assets.xcassets in Resources */,
 				FAD0950421B053B000C999CD /* Add.storyboard in Resources */,
 				FAD0950621B053E700C999CD /* Profile.storyboard in Resources */,
+				193466C621BF369B00145B0F /* SignIn.storyboard in Resources */,
 				FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,17 +393,19 @@
 				FAD0951121B0D1F600C999CD /* FirebaseManager.swift in Sources */,
 				FAD0950F21B0A18700C999CD /* PostController.swift in Sources */,
 				19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */,
-				191F15CA21B1C65300160F3D /* DateManager.swift in Sources */,
 				19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */,
 				FAD0950B21B0871500C999CD /* Post.swift in Sources */,
 				1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */,
+				193466CE21BF3AFD00145B0F /* SignUpViewController.swift in Sources */,
 				FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */,
+				193466CC21BF3AED00145B0F /* SignInViewController.swift in Sources */,
 				19123CF021B097EB00619398 /* BrowseCollectionViewCell.swift in Sources */,
 				191F15CE21B2291000160F3D /* PhotoSelectorViewController.swift in Sources */,
 				191F15CC21B1F15300160F3D /* AddHackViewController.swift in Sources */,
 				FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */,
 				19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */,
 				19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */,
+				193466C421BF15A700145B0F /* Extensions.swift in Sources */,
 				191F15C821B1C64400160F3D /* AlertManager.swift in Sources */,
 				FAD0950D21B0929200C999CD /* InternalUserController.swift in Sources */,
 			);
