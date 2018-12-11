@@ -36,6 +36,12 @@ class BrowseTableViewCell: UITableViewCell {
         }
     }
     
+    var postImage: UIImage? {
+        didSet {
+            updateImageView()
+        }
+    }
+    
     //Probs have to create an array to append the post the user favorite and hearted
     
     //MARK: - Actions
@@ -48,8 +54,14 @@ class BrowseTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         tidbitTextLabel.text = post.text
-//        tidbitImageView.image = post.image
 //        dateLabel.text = post.timestamp.formatLong()
+    }
+    
+    func updateImageView() {
+        DispatchQueue.main.async {
+            guard let postImage = self.postImage else { return }
+            self.tidbitImageView.image = postImage
+        }
     }
     
     // I just hid the share button I didn't delete it.

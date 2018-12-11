@@ -17,30 +17,37 @@ class BrowseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.estimatedRowHeight = 120
         tableView.rowHeight = 120
     }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
          return self.posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
         guard let post = self.posts?[indexPath.row] else { return UITableViewCell() }
-        // Configure the cell...
         cell.post = post
-//        cell.detailTextLabel?.text = post.timestamp.formatLong()
-
+        
+        cell.layer.cornerRadius = 10
+        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.borderColor = UIColor.white.cgColor
+        cell.contentView.layer.borderWidth = 5
+        cell.contentView.layer.backgroundColor = UIColor.white.cgColor
+        cell.backgroundColor = UIColor.white
+        cell.layer.shadowRadius = 5
+        cell.layer.shadowOpacity = 0.2
+        cell.layer.masksToBounds = false
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        PostController.shared.fetchImageFor(post: post) { (postImage) in
+            cell.postImage = postImage
+        }
         return cell
     }
 
-    //toDetailVC
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailVC"{
             guard let destinationVC = segue.destination as? BrowseDetailViewController else { return }

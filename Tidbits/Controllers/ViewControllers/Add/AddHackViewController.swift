@@ -19,9 +19,10 @@ class AddHackViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    let viewController:UIViewController = UIStoryboard(name: "Browse", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
+    let viewController:UIViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
     
-    var image: UIImage?
+    var photo: UIImage?
+    var category: PostController.Categories?
     //MARK: - Actions
     @IBAction func dropDownSelection(_ sender: UIButton) {
         allcategories.forEach { (category) in
@@ -37,7 +38,7 @@ class AddHackViewController: UITableViewController {
     @IBAction func categoryButtonTapped(_ sender: UIButton) {
         // Sets w.e the title of w.e category is clicked
         guard let title = sender.currentTitle, let tidbitCategory = PostController.Categories(rawValue: title) else { return }
-        
+        self.category = tidbitCategory
         switch tidbitCategory {
         case .all :
             print("All category button was tapped")
@@ -62,14 +63,14 @@ class AddHackViewController: UITableViewController {
     
     @IBAction func postButtonTapped(_ sender: UIButton) {
         print("post button was tapped")
-        guard let image = image,
-            let tidbit = enterTidbitTextField.text, !tidbit.isEmpty else { return }
+        guard let image = photo,
+            let tidbit = enterTidbitTextField.text,
+            !tidbit.isEmpty,
+            let category = category else { return }
 //        Create function
-        PostController.shared.createPostWith(image: image, text: tidbit, category: "", username: "") { (post) in
+        PostController.shared.createPostWith(image: image, text: tidbit, category: category.rawValue, username: "") { (post) in
         }
         self.tabBarController?.selectedIndex = 0
-        
-        
     }
     
     
@@ -82,12 +83,11 @@ class AddHackViewController: UITableViewController {
             destinationVC.delegate = self
         }
     }
-
 }
 
 extension AddHackViewController: PhotoSelectorViewControllerDelegate{
+    
     func selectPhoto(_ photo: UIImage) {
+        self.photo = photo
     }
-    
-    
 }

@@ -45,27 +45,23 @@ class PostController {
         
         let post = Post(image: image, text: text, category: category, createdByID: username)
         
-        let databaseRef = Database.database().reference().childByAutoId()
+        let databaseRef = FirebaseManager.databaseRef.child("Post").childByAutoId()
         
         if let image = image {
             guard let imageAsData = image.pngData() else { completion(false) ; return }
-            let storeRef = Storage.storage().reference().child("Post").child(databaseRef.key!)
-            FirebaseManager.save(data: imageAsData, to: storeRef) { (metadata, error) in
+            let storeRef = FirebaseManager.storeRef.child("Post").child(databaseRef.key!)
+            FirebaseManager.save(data: imageAsData, to: storeRef) { (metadata, error, urlAsString) in
                 if let _ = error {
                     completion(false)
                     return
                 }
                 
-                metadata?.storageReference?.downloadURL(completion: { (url, error) in
-                    guard let url = url?.absoluteString else { completion(false) ; return }
-                    
-                    post.imageURL = url
-                    
-                    FirebaseManager.save(object: post.asDictionary, to: databaseRef, completion: { (success) in
-                        if success {
-                            completion(true)
-                        }
-                    })
+                guard let imageURLAsString = urlAsString else { completion(false) ; return }
+                post.imageURL = imageURLAsString
+                FirebaseManager.save(object: post.asDictionary, to: databaseRef, completion: { (success) in
+                    if success {
+                        completion(true)
+                    }
                 })
             }
         } else {
@@ -77,14 +73,13 @@ class PostController {
         }
     }
     
-    
     func fetchPosts(completion: @escaping (Bool) -> Void) {
         let ref = FirebaseManager.databaseRef.child("Post")
         
         FirebaseManager.fetch(from: ref) { (fetchedPosts) in
             guard let postDictionaries = fetchedPosts as? [String : [String : Any]] else { completion(false) ; return }
             self.posts = postDictionaries.compactMap { Post(postDictionary: $0.value) }
-
+            
             self.techPosts = self.posts?.filter{ $0.category == "Tech" }
             self.foodPosts = self.posts?.filter{ $0.category == "Food" }
             self.techPosts = self.posts?.filter{ $0.category == "Tech" }
@@ -94,15 +89,31 @@ class PostController {
             self.partyPosts = self.posts?.filter{ $0.category == "Party" }
             self.favoritePosts = self.posts?.filter{ $0.category == "Favorites" }
         }
-        
-        // func fetchImageFor(post: Post)
-        
-        // func update(post: Post)
-        func update(post: Post, with image: UIImage?, text: String, category: String) {
-        }
-        
-        // func delete(post: Post)
-        func delete(post: Post) {
-        }
     }
+    
+    func fetchImageFor(post: Post, completion: @escaping (UIImage?) -> Void) {
+        guard let imageURL = post.imageURL,
+            let url = URL(string: imageURL)
+            else { completion(nil) ; return }
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                print("There was an error retrieving the post's image: \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else { completion(nil) ; return }
+            let postImage = UIImage(data: data)
+            completion(postImage)
+        }
+        dataTask.resume()
+    
+    // func update(post: Post)
+    func update(post: Post, with image: UIImage?, text: String, category: String) {
+    }
+    
+    // func delete(post: Post)
+    func delete(post: Post) {
+    }
+}
 }
