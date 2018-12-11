@@ -13,25 +13,18 @@ class BrowseTableViewController: UITableViewController {
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return PostController.shared.posts?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
         let _ = PostController.shared.posts?[indexPath.row]
-
-        // Configure the cell...
-
         return cell
     }
 

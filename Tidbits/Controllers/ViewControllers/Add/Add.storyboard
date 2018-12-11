@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Table View Controller-->
+        <!--Add Hack View Controller-->
         <scene sceneID="Qnu-p6-h2V">
             <objects>
-                <tableViewController id="D6D-ip-g3A" customClass="AddTableViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="D6D-ip-g3A" customClass="AddHackViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRd-hJ-QZ7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +273,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFa-ay-jyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1980" y="53.523238380809602"/>
+            <point key="canvasLocation" x="1719" y="196"/>
         </scene>
         <!--Photo Selector View Controller-->
         <scene sceneID="cyu-ir-ZTg">

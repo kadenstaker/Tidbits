@@ -26,7 +26,7 @@ class BrowseTableViewCell: UITableViewCell {
     }
     
     var post: Post? {
-        didSet{
+        didSet {
             updateViews()
         }
     }
@@ -57,6 +57,4 @@ class BrowseTableViewCell: UITableViewCell {
 //    @IBAction func shareButtonTapped(_ sender: UIButton) {
 ////        let activityController = UIActivityViewController(activityItems: <#T##[Any]#>, applicationActivities: <#T##[UIActivity]?#>)
 //    }
-    
-    
 }
