@@ -8,4 +8,4 @@
 
 import UIKit
     
-    let goldTheme = UIColor(red: 251/255, green: 197/255, blue: 32/255, alpha: 1)
+    let otherTheme = UIColor(red: 192/255, green: 216/255, blue: 224/255, alpha: 1)
