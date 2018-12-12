@@ -44,8 +44,8 @@ class AddHackViewController: UITableViewController {
             print("All category button was tapped")
         case .party :
             print("Fashion category button was tapped")
-        case .favorite :
-            print("Favorite Button Tapped")
+        case .favorites :
+            print("Favorites Button Tapped")
         case .food :
         print("Food category button was tapped")
         case .health :
@@ -67,7 +67,6 @@ class AddHackViewController: UITableViewController {
             let tidbit = enterTidbitTextField.text,
             !tidbit.isEmpty,
             let category = category else { return }
-//        Create function
         PostController.shared.createPostWith(image: image, text: tidbit, category: category.rawValue, username: "") { (post) in
         }
         self.tabBarController?.selectedIndex = 0
@@ -75,8 +74,6 @@ class AddHackViewController: UITableViewController {
     
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toImageSelector"{
             guard let destinationVC = segue.destination as? PhotoSelectorViewController else { return}
@@ -85,7 +82,7 @@ class AddHackViewController: UITableViewController {
     }
 }
 
-extension AddHackViewController: PhotoSelectorViewControllerDelegate{
+extension AddHackViewController: PhotoSelectorViewControllerDelegate {
     
     func selectPhoto(_ photo: UIImage) {
         self.photo = photo
