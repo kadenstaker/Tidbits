@@ -17,6 +17,9 @@ class BrowseCollectionViewController: UIViewController, UICollectionViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tabBarController?.delegate = UIApplication.shared.delegate as? UITabBarControllerDelegate
+        
         PostController.shared.fetchPosts { (success) in
             //Activity loading thing goes in here
         }

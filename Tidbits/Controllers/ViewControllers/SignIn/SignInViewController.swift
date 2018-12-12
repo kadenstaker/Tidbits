@@ -21,20 +21,14 @@ class SignInViewController: UIViewController {
         
         let passwordImage = UIImage(named: "pass")
         addImageToLeft(tField: passwordTextField , addImage: passwordImage!)
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(canPerformAction))
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
-////    @objc func cancelAction(){
-////        dismiss(animated: true) {
-////            self.tabBarController?.selectedIndex = 0
-////        }
-////        self.tabBarController?.selectedIndex = 0
-////        let storyboard = UIStoryboard(name: "Browse", bundle: nil)
-////        let collectVC = storyboard.instantiateInitialViewController()!
-////        present(collectVC, animated: true, completion: nil)
-////        print("Cancel Button tapped")
-//    }
+    @objc func cancelAction(){
+        
+        dismiss(animated: true, completion: nil)
+    }
 
     
     let myStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
@@ -63,8 +57,9 @@ class SignInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
         
         let signUpVc = storyboard.instantiateInitialViewController()!
+        signUpVc.modalTransitionStyle = .crossDissolve
         present(signUpVc, animated: true, completion: nil)
-    print("Sign up button Tapped, So let's sign up")
+        print("Sign up button Tapped, So let's sign up")
     }
     
 //    @objc func cancelAction(){
@@ -97,7 +92,7 @@ class SignInViewController: UIViewController {
         let font2 = UIFont.systemFont(ofSize: 12)
         let accountButton = UIButton(type: .system)
         //Using an attributed string because i'm want to use 2 diff colors for the account check button and sign in button. Don't want one color to get overwritten
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
         accountButton.setAttributedTitle(attributedTitle, for: .normal)
         attributedTitle.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.foregroundColor : otherColor, NSMutableAttributedString.Key.font : font]))
         
