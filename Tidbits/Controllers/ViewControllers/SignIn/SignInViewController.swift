@@ -21,7 +21,8 @@ class SignInViewController: UIViewController {
         let logIn = UIButton(type: .system)
         logIn.setTitleColor(.white, for: .normal)
         logIn.setTitle("Log In", for: .normal)
-        logIn.backgroundColor = goldTheme
+        logIn.backgroundColor = otherTheme
+        logIn.layer.cornerRadius = 10
         return logIn
     }()
     
@@ -29,7 +30,7 @@ class SignInViewController: UIViewController {
         let forgotButton = UIButton(type: .system)
         forgotButton.setTitleColor(.white, for: .normal)
         forgotButton.setTitle("Forgot Password?", for: .normal)
-        forgotButton.backgroundColor = goldTheme
+        forgotButton.backgroundColor = otherTheme
         return forgotButton
     }()
     
@@ -62,22 +63,27 @@ class SignInViewController: UIViewController {
     
     var emailTextField: UITextField = {
         let email = UITextField()
-        email.placeholder = "Email"
+//        email.layer.borderColor = UIColor.white.cgColor
+//        email.layer.borderWidth = 2
+        email.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
+//        email.borderStyle = UITextField.BorderStyle.line
         let attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         email.attributedPlaceholder = attributedPlaceholder
         email.textColor = .white
-        email.backgroundColor = goldTheme
+//        email.backgroundColor = goldTheme
         return email
     }()
     
     var passwordTextField: UITextField = {
         let password = UITextField()
-        password.placeholder = "Password"
+//        password.placeholder = "Password"
         password.isSecureTextEntry = true
+        password.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
+//        password.borderStyle = UITextField.BorderStyle.roundedRect
         let attributedTextPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         password.attributedPlaceholder = attributedTextPlaceholder
         password.textColor = .white
-        password.backgroundColor = goldTheme
+//        password.backgroundColor = goldTheme
         return password
     }()
     
@@ -136,7 +142,7 @@ class SignInViewController: UIViewController {
         logInButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logInButton)
         NSLayoutConstraint.activate([
-            logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
+            logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 12),
             logInButton.leftAnchor.constraint(equalTo: passwordTextField.leftAnchor, constant: 0),
             logInButton.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: 0),
             logInButton.heightAnchor.constraint(equalToConstant: 50),

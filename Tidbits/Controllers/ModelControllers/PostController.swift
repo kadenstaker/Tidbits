@@ -35,7 +35,9 @@ class PostController {
         case funny = "Funny"
     }
     
-    let categories = ["All", "Food", "Party", "Money", "Tech", "Health", "Favorite", "Favorite", "Funny"]
+    let categories = ["All", "Food", "Party", "Money", "Tech", "Health", "Favorite", "Funny"]
+    
+    func changeIsFavorited(post: Post) {  post.isFavorited = !post.isFavorited }
     
     // Initializer
     private init() {}
