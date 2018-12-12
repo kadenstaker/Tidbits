@@ -20,10 +20,29 @@
                         <color key="backgroundColor" red="0.090196078431372548" green="0.21176470588235294" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="HzT-6z-AXd"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZH0-mI-nuS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjU-Ke-stX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="93"/>
+            <point key="canvasLocation" x="1994.4000000000001" y="92.203898050974516"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xZK-Av-Ull">
+            <objects>
+                <navigationController storyboardIdentifier="SignUp" automaticallyAdjustsScrollViewInsets="NO" id="jS6-dk-bg0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="juO-86-5rg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hhb-M8-qaX" kind="relationship" relationship="rootViewController" id="2gt-o1-Qg6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSp-nw-RAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055.2" y="92.203898050974516"/>
         </scene>
     </scenes>
 </document>

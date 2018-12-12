@@ -27,6 +27,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        defaultImage.image = nil
+        
+        if InternalUserController.shared.loggedInUser == nil{
+            
+            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "backToSignIn") as! SignInViewController
+            
+            present(signInVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func addProfileImageButtonTapped(_ sender: UIButton) {
