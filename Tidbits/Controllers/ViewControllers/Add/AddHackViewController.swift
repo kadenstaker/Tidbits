@@ -19,7 +19,7 @@ class AddHackViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    let viewController:UIViewController = UIStoryboard(name: "Browse", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
+    let viewController:UIViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
     
     var image: UIImage?
     //MARK: - Actions

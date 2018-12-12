@@ -21,6 +21,7 @@
 		193466CC21BF3AED00145B0F /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466CB21BF3AED00145B0F /* SignInViewController.swift */; };
 		193466CE21BF3AFD00145B0F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466CD21BF3AFD00145B0F /* SignUpViewController.swift */; };
 		1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962525821B5F31F004C2D58 /* ProfileViewController.swift */; };
+		19A5E01A21C05D520047EE3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A5E01921C05D520047EE3E /* Constants.swift */; };
 		C78B82500767E46D30B7E390 /* Pods_Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */; };
 		FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC3B921AC9D070092C3F8 /* AppDelegate.swift */; };
 		FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3BD21AC9D070092C3F8 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		193466CB21BF3AED00145B0F /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		193466CD21BF3AFD00145B0F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1962525821B5F31F004C2D58 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		19A5E01921C05D520047EE3E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tidbits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90F00541D6632FC5B52AC218 /* Pods-Tidbits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.debug.xcconfig"; sourceTree = "<group>"; };
 		FA5EC3B621AC9D070092C3F8 /* Tidbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +256,7 @@
 				191F15C721B1C64400160F3D /* AlertManager.swift */,
 				193466C321BF15A700145B0F /* Extensions.swift */,
 				FAD0951021B0D1F600C999CD /* FirebaseManager.swift */,
+				19A5E01921C05D520047EE3E /* Constants.swift */,
 			);
 			path = UtilityControllers;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD0951121B0D1F600C999CD /* FirebaseManager.swift in Sources */,
+				19A5E01A21C05D520047EE3E /* Constants.swift in Sources */,
 				FAD0950F21B0A18700C999CD /* PostController.swift in Sources */,
 				19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */,
 				19123CF621B0B50200619398 /* BrowseTableViewCell.swift in Sources */,

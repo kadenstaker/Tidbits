@@ -21,39 +21,100 @@ class SignInViewController: UIViewController {
         let logIn = UIButton(type: .system)
         logIn.setTitleColor(.white, for: .normal)
         logIn.setTitle("Log In", for: .normal)
-        logIn.backgroundColor = UIColor.cyan
+        logIn.backgroundColor = goldTheme
         return logIn
     }()
     
-    var emailTextField:UITextField {
-        let email = UITextField()
-        email.placeholder = "Email"
-        email.textColor = .white
-        email.backgroundColor = .red
-        return email
+    let forgotPButton: UIButton = {
+        let forgotButton = UIButton(type: .system)
+        forgotButton.setTitleColor(.white, for: .normal)
+        forgotButton.setTitle("Forgot Password?", for: .normal)
+        forgotButton.backgroundColor = goldTheme
+        return forgotButton
+    }()
+    
+    @objc func signupAction(){
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        
+        let signUpVc = storyboard.instantiateInitialViewController()!
+        present(signUpVc, animated: true, completion: nil)
+    print("Sign up button Tapped, So let's sign up")
     }
     
-    var passwordTextField: UITextField {
+    
+    
+    
+    let accountCheckButton: UIButton = {
+        let customizColor = UIColor(red: 20/255, green: 20/255, blue: 90/255, alpha: 1)
+        let otherColor = UIColor.white
+        let font = UIFont.systemFont(ofSize: 16)
+        let font2 = UIFont.systemFont(ofSize: 12)
+        let accountButton = UIButton(type: .system)
+        //Using an attributed string because i'm want to use 2 diff colors for the account check button and sign in button. Don't want one color to get overwritten
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
+        accountButton.setAttributedTitle(attributedTitle, for: .normal)
+        attributedTitle.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.foregroundColor : otherColor, NSMutableAttributedString.Key.font : font]))
+        
+        accountButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
+        
+        return accountButton
+    }()
+    
+    var emailTextField: UITextField = {
+        let email = UITextField()
+        email.placeholder = "Email"
+        let attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        email.attributedPlaceholder = attributedPlaceholder
+        email.textColor = .white
+        email.backgroundColor = goldTheme
+        return email
+    }()
+    
+    var passwordTextField: UITextField = {
         let password = UITextField()
         password.placeholder = "Password"
+        password.isSecureTextEntry = true
+        let attributedTextPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        password.attributedPlaceholder = attributedTextPlaceholder
         password.textColor = .white
-        password.backgroundColor = .blue
+        password.backgroundColor = goldTheme
         return password
+    }()
+    
+    fileprivate func forgotPasswordButton() {
+        forgotPButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(forgotPButton)
+        
+        NSLayoutConstraint.activate([
+            forgotPButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 8),
+            forgotPButton.leftAnchor.constraint(equalTo: logInButton.leftAnchor, constant: 0),
+            forgotPButton.rightAnchor.constraint(equalTo: logInButton.rightAnchor, constant: 0),
+            forgotPButton.heightAnchor.constraint(equalToConstant: 30)
+            ])
+    }
+    
+    //Just changes the status bar to a light color.Everything at the top of the screen, the battery the provider etc
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return.lightContent
     }
     
     fileprivate func updateTextFields() {
         setupEmailTextField()
         setupPasswordTextField()
+        setupLogInButton()
+        setupAccountCheckButton()
+        forgotPasswordButton()
     }
     
     fileprivate func setupEmailTextField() {
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(emailTextField)
+        
         NSLayoutConstraint.activate([
-            emailTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            emailTextField.leftAnchor.constraint(lessThanOrEqualTo: view.leftAnchor, constant: 24),
+            emailTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24),
             emailTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24),
             emailTextField.heightAnchor.constraint(equalToConstant: 30)
+            
             ])
         
     }
@@ -61,11 +122,13 @@ class SignInViewController: UIViewController {
     fileprivate func setupPasswordTextField() {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(passwordTextField)
+        
         NSLayoutConstraint.activate([
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 8),
             passwordTextField.leftAnchor.constraint(equalTo: emailTextField.leftAnchor, constant: 0),
             passwordTextField.rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: 0),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 30)
+            passwordTextField.heightAnchor.constraint(equalToConstant: 30),
+            emailTextField.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             ])
         
     }
@@ -76,7 +139,18 @@ class SignInViewController: UIViewController {
             logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 8),
             logInButton.leftAnchor.constraint(equalTo: passwordTextField.leftAnchor, constant: 0),
             logInButton.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: 0),
-            logInButton.heightAnchor.constraint(equalToConstant: 30),
+            logInButton.heightAnchor.constraint(equalToConstant: 50),
+            ])
+    }
+    
+    fileprivate func setupAccountCheckButton() {
+        accountCheckButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(accountCheckButton)
+        NSLayoutConstraint.activate([
+            accountCheckButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            accountCheckButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            accountCheckButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
+            accountCheckButton.heightAnchor.constraint(equalToConstant: 30)
             ])
     }
     
