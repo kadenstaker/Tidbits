@@ -23,6 +23,9 @@ class SignInViewController: UIViewController {
         addImageToLeft(tField: passwordTextField , addImage: passwordImage!)
         let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     @objc func cancelAction(){
@@ -44,14 +47,16 @@ class SignInViewController: UIViewController {
         return logIn
     }()
     
-    let forgotPButton: UIButton = {
-        let forgotButton = UIButton(type: .system)
-        forgotButton.setTitleColor(.white, for: .normal)
-        forgotButton.setTitle("Forgot Password?", for: .normal)
-        forgotButton.backgroundColor = otherTheme
-        forgotButton.layer.cornerRadius = 10
-        return forgotButton
-    }()
+    
+    //Implement later
+//    let forgotPButton: UIButton = {
+//        let forgotButton = UIButton(type: .system)
+//        forgotButton.setTitleColor(.white, for: .normal)
+//        forgotButton.setTitle("Forgot Password?", for: .normal)
+//        forgotButton.backgroundColor = otherTheme
+//        forgotButton.layer.cornerRadius = 10
+//        return forgotButton
+//    }()
     
     @objc func signupAction(){
         let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
@@ -70,20 +75,17 @@ class SignInViewController: UIViewController {
 //    }
     
     @objc func logInAction(){
-        guard let userCreatedEmail = emailTextField.text, !userCreatedEmail.isEmpty, let password = passwordTextField.text, !password.isEmpty else { return }
+        guard let userCreatedEmail = emailTextField.text?.lowercased(), !userCreatedEmail.isEmpty, let password = passwordTextField.text, !password.isEmpty else { return }
         
         //Log in
         InternalUserController.shared.loginUser(withEmail: userCreatedEmail, password: password) { (success) in
             if success {
-                self.presentedViewController?.dismiss(animated: true, completion: nil)
+                self.presentingViewController?.dismiss(animated: true, completion: nil)
             }else{
                 fatalError("Wrong Password or username, Or no account found")
             }
         }
     }
-    
-    
-    
     
     let accountCheckButton: UIButton = {
         let customizColor = UIColor(red: 20/255, green: 20/255, blue: 90/255, alpha: 1)
@@ -137,17 +139,19 @@ class SignInViewController: UIViewController {
         return password
     }()
     
-    fileprivate func forgotPasswordButton() {
-        forgotPButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(forgotPButton)
-        
-        NSLayoutConstraint.activate([
-            forgotPButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 8),
-            forgotPButton.leftAnchor.constraint(equalTo: logInButton.leftAnchor, constant: 0),
-            forgotPButton.rightAnchor.constraint(equalTo: logInButton.rightAnchor, constant: 0),
-            forgotPButton.heightAnchor.constraint(equalToConstant: 30)
-            ])
-    }
+    
+    //Implement later
+//    fileprivate func forgotPasswordButton() {
+//        forgotPButton.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(forgotPButton)
+//
+//        NSLayoutConstraint.activate([
+//            forgotPButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 8),
+//            forgotPButton.leftAnchor.constraint(equalTo: logInButton.leftAnchor, constant: 0),
+//            forgotPButton.rightAnchor.constraint(equalTo: logInButton.rightAnchor, constant: 0),
+//            forgotPButton.heightAnchor.constraint(equalToConstant: 30)
+//            ])
+//    }
     
     //Just changes the status bar to a light color.Everything at the top of the screen, the battery the provider etc
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -159,7 +163,7 @@ class SignInViewController: UIViewController {
         setupPasswordTextField()
         setupLogInButton()
         setupAccountCheckButton()
-        forgotPasswordButton()
+//        forgotPasswordButton()
     }
     
     fileprivate func setupEmailTextField() {
@@ -219,8 +223,14 @@ extension SignInViewController: UITextFieldDelegate{
         }
         if textField == passwordTextField {
             passwordTextField.resignFirstResponder()
-            signupAction()
+            logInAction()
         }
+//        if textField == passwordTextField {
+//            passwordTextField.becomeFirstResponder()
+//        }
+//        if textField == passwordTextField {
+//            passwordTextField.resignFirstResponder()
+//        }
         return true
     }
 }

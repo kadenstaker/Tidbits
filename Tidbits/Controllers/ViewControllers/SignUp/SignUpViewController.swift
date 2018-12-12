@@ -23,6 +23,10 @@ class SignUpViewController: UIViewController {
         setUpALreadyHaveAnAccountButton()
         customizations()
         
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
 //        let emailImage = UIImage(named: "email2")
 //        addImageToLeft(tField: emailTextField, addImage: emailImage!)
 //
@@ -120,6 +124,7 @@ class SignUpViewController: UIViewController {
             if success {
                 DispatchQueue.main.async {
                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                    print("User created Successfully")
                 }
             }
         }
@@ -128,15 +133,25 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField == emailTextField{
+//            emailTextField.becomeFirstResponder()
+//        }
+        
         if textField == emailTextField{
             emailTextField.resignFirstResponder()
         }
-        
-        if textField == passwordTextField{
-            passwordTextField.resignFirstResponder()
-        }
-        if usernameTextField == usernameTextField{
+//        if textField == usernameTextField{
+//            usernameTextField.becomeFirstResponder()
+//        }
+        if textField == usernameTextField{
             usernameTextField.resignFirstResponder()
+        }
+//        if textField == passwordTextField{
+//            passwordTextField.becomeFirstResponder()
+//        }
+        if textField == passwordTextField{
+            passwordTextField.isSecureTextEntry = true
+            passwordTextField.resignFirstResponder()
             signUserUp()
         }
         return true

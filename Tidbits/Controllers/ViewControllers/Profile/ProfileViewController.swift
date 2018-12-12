@@ -17,6 +17,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var customizedSignOutButton: UIButton!
     
+    var internalUser: InternalUser?{
+        didSet{
+            
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
