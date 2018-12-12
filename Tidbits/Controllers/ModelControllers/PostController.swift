@@ -26,16 +26,16 @@ class PostController {
     
     enum Categories: String {
         case all = "All"
-        case food = "Food"
-        case party = "Party"
-        case money = "Money"
         case tech = "Tech"
+        case food = "Food"
+        case money = "Money"
         case health = "Health"
-        case favorite = "Favorite"
         case funny = "Funny"
+        case party = "Party"
+        case favorites = "Favorites"
     }
     
-    let categories = ["All", "Food", "Party", "Money", "Tech", "Health", "Favorite", "Funny"]
+    let categories = ["All", "Food", "Party", "Money", "Tech", "Health", "Favorites", "Funny"]
     
     func changeIsFavorited(post: Post) {  post.isFavorited = !post.isFavorited }
     

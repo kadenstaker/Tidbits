@@ -34,14 +34,14 @@ class BrowseCollectionViewController: UIViewController, UICollectionViewDataSour
         switch cell.restorationIdentifier {
         case "All":
             destinationVC.posts = PostController.shared.posts
-        case "Health":
-            destinationVC.posts = PostController.shared.healthPosts
+        case "Tech":
+            destinationVC.posts = PostController.shared.techPosts
         case "Food":
             destinationVC.posts = PostController.shared.foodPosts
         case "Money":
             destinationVC.posts = PostController.shared.moneyPosts
-        case "Tech":
-            destinationVC.posts = PostController.shared.techPosts
+        case "Health":
+            destinationVC.posts = PostController.shared.healthPosts
         case "Funny":
             destinationVC.posts = PostController.shared.funnyPosts
         case "Party":
