@@ -277,6 +277,8 @@
                     <connections>
                         <outlet property="detailDateLabel" destination="xTo-0U-5wq" id="cv0-6R-mc9"/>
                         <outlet property="detailImageView" destination="pCK-Vb-Pyw" id="bcG-tM-NaS"/>
+                        <outlet property="heartB" destination="hd2-lD-dlx" id="oqL-aT-SM3"/>
+                        <outlet property="userTidbit" destination="MNl-5g-G5z" id="Y3x-Mq-2Jx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIV-rl-d6t" userLabel="First Responder" sceneMemberID="firstResponder"/>

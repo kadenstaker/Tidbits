@@ -29,12 +29,23 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 //        defaultImage.image = nil
         
         if InternalUserController.shared.loggedInUser == nil{
-            
+
             let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
             let signInVC = storyboard.instantiateViewController(withIdentifier: "backToSignIn") as! SignInViewController
-            
-            present(signInVC, animated: true, completion: nil)
+            signInVC.modalPresentationStyle = .popover
+            signInVC.modalTransitionStyle = .crossDissolve
+            let navController = UINavigationController(rootViewController: signInVC)
+            present(navController, animated: true, completion: nil)
+            let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelAction))
+            self.navigationItem.rightBarButtonItem = cancelButton
         }
+    }
+    
+    @objc func cancelAction(){
+        let storyboard = UIStoryboard(name: "collectionVC", bundle: nil)
+        let collectVC = storyboard.instantiateInitialViewController()!
+        present(collectVC, animated: true, completion: nil)
+        print("Cancel Button tapped")
     }
     
     @IBAction func addProfileImageButtonTapped(_ sender: UIButton) {

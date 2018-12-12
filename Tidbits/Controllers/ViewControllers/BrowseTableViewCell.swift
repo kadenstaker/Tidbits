@@ -55,9 +55,9 @@ class BrowseTableViewCell: UITableViewCell {
         guard let post = post else { return }
         tidbitTextLabel.text = post.text
 //        dateLabel.text = post.timestamp.formatLong()
-        heartButton.isEnabled = post.isFavorited
+//        heartButton.isEnabled = post.isFavorited
         
-        if heartButton.isTouchInside {
+        if post.isFavorited {
             heartButton.setImage(#imageLiteral(resourceName: "iconfinder_Instagram_UI-07_2315589"), for: .normal)
         }else{
             heartButton.setImage(#imageLiteral(resourceName: "defaultHeart"), for: .normal)

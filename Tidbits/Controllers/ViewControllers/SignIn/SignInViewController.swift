@@ -6,6 +6,9 @@
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
+//dismiss keybaord when done
+//Welcome Screen wher eit says welcome and the usersName
+
 import UIKit
 
 class SignInViewController: UIViewController {
@@ -13,7 +16,26 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTextFields()
+        let emailImage = UIImage(named: "email")
+        addImageToLeft(tField: emailTextField, addImage: emailImage!)
+        
+        let passwordImage = UIImage(named: "pass")
+        addImageToLeft(tField: passwordTextField , addImage: passwordImage!)
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(canPerformAction))
+        self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
+////    @objc func cancelAction(){
+////        dismiss(animated: true) {
+////            self.tabBarController?.selectedIndex = 0
+////        }
+////        self.tabBarController?.selectedIndex = 0
+////        let storyboard = UIStoryboard(name: "Browse", bundle: nil)
+////        let collectVC = storyboard.instantiateInitialViewController()!
+////        present(collectVC, animated: true, completion: nil)
+////        print("Cancel Button tapped")
+//    }
+
     
     let myStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
     
@@ -21,8 +43,10 @@ class SignInViewController: UIViewController {
         let logIn = UIButton(type: .system)
         logIn.setTitleColor(.white, for: .normal)
         logIn.setTitle("Log In", for: .normal)
-        logIn.backgroundColor = otherTheme
-        logIn.layer.cornerRadius = 10
+        logIn.backgroundColor = blueTheme
+        logIn.layer.borderWidth = 1.0
+        logIn.layer.cornerRadius = 15
+        logIn.addTarget(self, action: #selector(logInAction), for: .touchUpInside)
         return logIn
     }()
     
@@ -31,6 +55,7 @@ class SignInViewController: UIViewController {
         forgotButton.setTitleColor(.white, for: .normal)
         forgotButton.setTitle("Forgot Password?", for: .normal)
         forgotButton.backgroundColor = otherTheme
+        forgotButton.layer.cornerRadius = 10
         return forgotButton
     }()
     
@@ -40,6 +65,26 @@ class SignInViewController: UIViewController {
         let signUpVc = storyboard.instantiateInitialViewController()!
         present(signUpVc, animated: true, completion: nil)
     print("Sign up button Tapped, So let's sign up")
+    }
+    
+//    @objc func cancelAction(){
+//        let storyboard = UIStoryboard(name: "collectionVC", bundle: nil)
+//        let collectVC = storyboard.instantiateInitialViewController()!
+//        present(collectVC, animated: true, completion: nil)
+//        print("Cancel Button tapped")
+//    }
+    
+    @objc func logInAction(){
+        guard let userCreatedEmail = emailTextField.text, !userCreatedEmail.isEmpty, let password = passwordTextField.text, !password.isEmpty else { return }
+        
+        //Log in
+        InternalUserController.shared.loginUser(withEmail: userCreatedEmail, password: password) { (success) in
+            if success {
+                self.presentedViewController?.dismiss(animated: true, completion: nil)
+            }else{
+                fatalError("Wrong Password or username, Or no account found")
+            }
+        }
     }
     
     
@@ -61,22 +106,32 @@ class SignInViewController: UIViewController {
         return accountButton
     }()
     
+    func addImageToLeft(tField: UITextField, addImage image: UIImage){
+        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height))
+        tField.leftView = leftImageView
+        tField.leftViewMode = .always
+        leftImageView.image = image
+    }
+    
     var emailTextField: UITextField = {
         let email = UITextField()
+        email.resignFirstResponder()
+        email.leftViewMode = .always
 //        email.layer.borderColor = UIColor.white.cgColor
 //        email.layer.borderWidth = 2
         email.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
 //        email.borderStyle = UITextField.BorderStyle.line
         let attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         email.attributedPlaceholder = attributedPlaceholder
+//         email.borderStyle = UITextField.BorderStyle.roundedRect
         email.textColor = .white
-//        email.backgroundColor = goldTheme
         return email
     }()
     
     var passwordTextField: UITextField = {
         let password = UITextField()
 //        password.placeholder = "Password"
+        password.resignFirstResponder()
         password.isSecureTextEntry = true
         password.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
 //        password.borderStyle = UITextField.BorderStyle.roundedRect
@@ -160,18 +215,17 @@ class SignInViewController: UIViewController {
             ])
     }
     
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+}
+
+extension SignInViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField ==  emailTextField {
+            emailTextField.resignFirstResponder()
+        }
+        if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            signupAction()
+        }
+        return true
+    }
 }
