@@ -22,13 +22,11 @@ class InternalUserController {
     
     // MARK: - Functions
     func loginUser(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) {
-        FirebaseManager.logInUser(withEmail: email, password: password) { (success) in
-            if success {
-                completion(true)
-            } else {
-                print("There was an error in \(#function)")
-                completion(false)
-            }
+        FirebaseManager.logInUser(withEmail: email, password: password) { (userDictionary) in
+            guard let userDictionary = userDictionary as? [String : Any] else { completion(false) ; return }
+            let loggedInUser = InternalUser(dictionary: userDictionary)
+            self.loggedInUser = loggedInUser
+            completion(true)
         }
     }
     
@@ -47,11 +45,13 @@ class InternalUserController {
         FirebaseManager.getUser { (internalUserDictionary) in
             guard let internalUserDictionary = internalUserDictionary as? [String : Any], let internalUser = InternalUser(dictionary: internalUserDictionary) else { completion(false) ; return }
             self.loggedInUser = internalUser
-            }
+            
         }
     }
-    
-    // func blockUser(user: InternalUser)
-    
-    // func checkIfLoggedIn()
+}
+
+
+// func blockUser(user: InternalUser)
+
+// func checkIfLoggedIn()
 

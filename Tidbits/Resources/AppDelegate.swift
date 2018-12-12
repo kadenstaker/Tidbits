@@ -17,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
+        
+        FirebaseManager.getUser { (userDictionary) in
+            guard let userDictionary = userDictionary as? [String: Any] else { return }
+            let loggedInUser = InternalUser(dictionary: userDictionary)
+            InternalUserController.shared.loggedInUser = loggedInUser
+        }
+        
         window?.makeKeyAndVisible()
 //        let logInVC = SignUpViewController()
 //        let controller = UINavigationController(rootViewController: logInVC)

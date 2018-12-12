@@ -34,7 +34,7 @@ class FirebaseManager {
         }
     }
     
-    static public func logInUser(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) {
+    static public func logInUser(withEmail email: String, password: String, completion: @escaping (Any?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print("There was an error in \(#function): \(error), \(error.localizedDescription)")
@@ -42,7 +42,10 @@ class FirebaseManager {
                 return
             } else {
                 // fetch the user
-                completion(true)
+                let ref = FirebaseManager.databaseRef.child("Users").child(user!.user.displayName!)
+                FirebaseManager.fetch(from: ref, completion: { (userDictionary) in
+                    completion(userDictionary)
+                })
             }
         }
     }
