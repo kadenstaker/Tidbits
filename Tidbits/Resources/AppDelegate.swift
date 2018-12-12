@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-//        window?.makeKeyAndVisible()
+        window?.makeKeyAndVisible()
 //        let logInVC = SignUpViewController()
 //        let controller = UINavigationController(rootViewController: logInVC)
 //        window?.rootViewController = controller
@@ -50,3 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if viewController == tabBarController.viewControllers?[2] && InternalUserController.shared.loggedInUser == nil {
+            
+            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
+            let signInVC = storyboard.instantiateViewController(withIdentifier: "backToSignIn") as! SignInViewController
+            signInVC.modalPresentationStyle = .popover
+            signInVC.modalTransitionStyle = .crossDissolve
+            let navController = UINavigationController(rootViewController: signInVC)
+            tabBarController.present(navController, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
+    }
+}

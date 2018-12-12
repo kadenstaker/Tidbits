@@ -8,7 +8,13 @@
 
 import UIKit
 
-class BrowseTableViewController: UITableViewController {
+class BrowseTableViewController: UITableViewController, BrowseTableViewCellDelegate {
+    func isFavoritedImageValueChanged(cell: BrowseTableViewCell) {
+        guard let post = cell.post else { return }
+        PostController.shared.changeIsFavorited(post: post)
+        cell.updateViews()
+    }
+    
 
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
@@ -29,7 +35,7 @@ class BrowseTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as? BrowseTableViewCell else { return UITableViewCell()}
         guard let post = self.posts?[indexPath.row] else { return UITableViewCell() }
         cell.post = post
-        
+        cell.delegate = self
         cell.layer.cornerRadius = 10
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderColor = UIColor.white.cgColor

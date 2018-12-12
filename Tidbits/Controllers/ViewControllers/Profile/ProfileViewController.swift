@@ -24,17 +24,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         customizedSignOutButton.layer.cornerRadius = 8
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        defaultImage.image = nil
-        
-        if InternalUserController.shared.loggedInUser == nil{
-            
-            let storyboard = UIStoryboard(name: "SignIn", bundle: nil)
-            let signInVC = storyboard.instantiateViewController(withIdentifier: "backToSignIn") as! SignInViewController
-            
-            present(signInVC, animated: true, completion: nil)
-        }
+    @objc func cancelAction(){
+        let storyboard = UIStoryboard(name: "collectionVC", bundle: nil)
+        let collectVC = storyboard.instantiateInitialViewController()!
+        present(collectVC, animated: true, completion: nil)
+        print("Cancel Button tapped")
     }
     
     @IBAction func addProfileImageButtonTapped(_ sender: UIButton) {
@@ -63,17 +57,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
 
         present(actionSheet, animated:  true)
     }
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
 }
 extension ProfileViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

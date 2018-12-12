@@ -8,13 +8,20 @@
 
 import UIKit
 
-class BrowseDetailViewController: UIViewController {
+//Drag out heart button outlet
+
+class BrowseDetailViewController: UIViewController{
+    
+    
     
     //Mark: - Outlets
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var detailDateLabel: UILabel!
+    @IBOutlet weak var userTidbit: UILabel!
+    @IBOutlet weak var heartB: UIButton!
     
     var post: Post?
+    var interalUser: InternalUser?
     
     
     override func viewDidLoad() {
@@ -23,8 +30,9 @@ class BrowseDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let post = post else { return }
+        guard let post = post, let internalUser = interalUser else { return }
         detailImageView.image = post.image
+        userTidbit.text = "\(internalUser.username) & \(post.text)"
     }
     
     //MARK: - Actions
