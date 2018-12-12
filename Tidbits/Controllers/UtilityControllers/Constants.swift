@@ -7,5 +7,6 @@
 //
 
 import UIKit
-    
-    let otherTheme = UIColor(red: 192/255, green: 216/255, blue: 224/255, alpha: 1)
+
+let otherTheme = UIColor(red: 192/255, green: 216/255, blue: 224/255, alpha: 1)
+let blueTheme = UIColor(red: 60/255, green: 162/255, blue: 200/255, alpha: 1)

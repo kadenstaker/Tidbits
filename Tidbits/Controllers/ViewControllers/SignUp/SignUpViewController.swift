@@ -10,10 +10,75 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    
+    //MARK: - Outlets
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpALreadyHaveAnAccountButton()
+        customizations()
+        
+//        let emailImage = UIImage(named: "email2")
+//        addImageToLeft(tField: emailTextField, addImage: emailImage!)
+//
+//        let passwordImage = UIImage(named: "lock")
+//        addImageToLeft(tField: passwordTextField , addImage: passwordImage!)
+//        passwordTextField.leftViewMode = .always
+//        emailTextField.leftViewMode = .always
+        
+        //Bar Button Item
+        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: cancelButton, action: nil)
+         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
+    //MARK: - Actions
+    @IBAction func signUpButtonTapped(_ sender: UIButton) {
+        signUserUp()
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
+        let _ = navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func editTextFields(_ textFields: UITextField){
+        textFields.layer.cornerRadius = 20
+        textFields.layer.backgroundColor = otherTheme.cgColor
+        textFields.borderStyle = .roundedRect
+    }
+    
+        func customizations() {
+            editTextFields(emailTextField)
+            editTextFields(usernameTextField)
+            editTextFields(passwordTextField)
+            
+//            signUpButton.layer.cornerRadius = 20
+//            signUpButton.layer.backgroundColor = otherTheme.cgColor
+            signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
+//            signUpButton.layer.shadowColor = otherTheme.cgColor
+//            signUpButton.layer.shadowRadius = 4
+//            signUpButton.layer.shadowOpacity = 1
+//            signUpButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+            signUpButton.layer.borderWidth = 1.0
+            signUpButton.setTitleColor(UIColor.white, for: .normal)
+            signUpButton.layer.borderColor = otherTheme.cgColor
+            signUpButton.layer.backgroundColor = otherTheme.cgColor
+        }
+    
+    //image stuff
+//    func addImageToLeft(tField: UITextField, addImage image: UIImage){
+//        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 30, height: 40))
+//        leftImageView.image = image
+//        tField.leftView = leftImageView
+//
+//        tField.leftViewMode = .always
+//    }
+    
     
     @objc func signInAction() {
         dismiss(animated: true, completion: nil)
@@ -47,15 +112,33 @@ class SignUpViewController: UIViewController {
         
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func signUserUp(){
+        guard let newUsername = usernameTextField.text, !newUsername.isEmpty,
+            let userEmail = emailTextField.text, !userEmail.isEmpty, let userPassword = passwordTextField.text, !userPassword.isEmpty else { return }
+        
+        InternalUserController.shared.createUserWith(email: userEmail, password: userPassword, username: newUsername) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField{
+            emailTextField.resignFirstResponder()
+        }
+        
+        if textField == passwordTextField{
+            passwordTextField.resignFirstResponder()
+        }
+        if usernameTextField == usernameTextField{
+            usernameTextField.resignFirstResponder()
+            signUserUp()
+        }
+        return true
+    }
 }

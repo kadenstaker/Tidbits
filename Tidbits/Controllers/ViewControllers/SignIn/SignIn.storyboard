@@ -20,7 +20,9 @@
                         <color key="backgroundColor" red="0.75294117647058822" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="zhS-N4-LJW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UKP-uf-AxN"/>
+                    <navigationItem key="navigationItem" id="UKP-uf-AxN">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="T9Q-J4-IlN"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rZ-rD-13B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

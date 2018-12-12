@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="QA9-oE-0LQ">
             <objects>
-                <viewController id="V45-M5-zM3" customClass="ProfileViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="collectionVC" id="V45-M5-zM3" customClass="ProfileViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujA-WI-bVk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
