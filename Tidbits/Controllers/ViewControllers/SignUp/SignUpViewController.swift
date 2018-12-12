@@ -32,8 +32,8 @@ class SignUpViewController: UIViewController {
 //        emailTextField.leftViewMode = .always
         
         //Bar Button Item
-        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: cancelButton, action: nil)
-         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+//        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: cancelButton, action: nil)
+//         self.navigationItem.rightBarButtonItem = rightBarButtonItem
     }
     
     //MARK: - Actions
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIBarButtonItem) {
-        let _ = navigationController?.popViewController(animated: true)
+        let _ = dismiss(animated: true, completion: nil)
         
     }
     
