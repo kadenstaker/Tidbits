@@ -75,14 +75,15 @@ class SignInViewController: UIViewController {
 //    }
     
     @objc func logInAction(){
-        guard let userCreatedEmail = emailTextField.text?.lowercased(), !userCreatedEmail.isEmpty, let password = passwordTextField.text, !password.isEmpty else { return }
-        
+        guard let userCreatedEmail = emailTextField.text?.lowercased(), !userCreatedEmail.isEmpty, let password = passwordTextField.text, !password.isEmpty
+            else{
+                AlertManager.signInAlert(self, title: "Missing Info", message: "Please fill out all required fields")
+                return
+        }
         //Log in
         InternalUserController.shared.loginUser(withEmail: userCreatedEmail, password: password) { (success) in
             if success {
                 self.presentingViewController?.dismiss(animated: true, completion: nil)
-            }else{
-                fatalError("Wrong Password or username, Or no account found")
             }
         }
     }
@@ -113,6 +114,8 @@ class SignInViewController: UIViewController {
     var emailTextField: UITextField = {
         let email = UITextField()
         email.resignFirstResponder()
+        email.autocapitalizationType = .none
+        email.textContentType = .emailAddress
 //        email.text?.lowercased()
         email.leftViewMode = .always
 //        email.layer.borderColor = UIColor.white.cgColor
@@ -221,17 +224,12 @@ extension SignInViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField ==  emailTextField {
             emailTextField.resignFirstResponder()
+            emailTextField.text?.lowercased()
         }
         if textField == passwordTextField {
             passwordTextField.resignFirstResponder()
             logInAction()
         }
-//        if textField == passwordTextField {
-//            passwordTextField.becomeFirstResponder()
-//        }
-//        if textField == passwordTextField {
-//            passwordTextField.resignFirstResponder()
-//        }
         return true
     }
 }

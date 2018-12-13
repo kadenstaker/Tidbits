@@ -28,6 +28,13 @@ class AlertManager {
         return deleteAlert
     }
     
+    static func signInAlert(_ inSignUpVC: UIViewController, title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        inSignUpVC.present(alert, animated: true, completion: nil)
+    }
+    
 //    static func reportAlert() -> UIAlertController{
 ////        let reportAlert = UIAlertController(title: "Report Post", message: "Are you sure you want to report this Post?", preferredStyle: <#T##UIAlertController.Style#>)
 //    }

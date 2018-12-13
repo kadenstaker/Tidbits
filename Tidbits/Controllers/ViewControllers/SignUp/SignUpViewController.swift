@@ -118,13 +118,17 @@ class SignUpViewController: UIViewController {
     
     func signUserUp(){
         guard let newUsername = usernameTextField.text, !newUsername.isEmpty,
-            let userEmail = emailTextField.text, !userEmail.isEmpty, let userPassword = passwordTextField.text, !userPassword.isEmpty else { return }
+            let userEmail = emailTextField.text, !userEmail.isEmpty, let userPassword = passwordTextField.text, !userPassword.isEmpty else {
+                AlertManager.signInAlert(self, title: "Missing Info", message: "Please fill out all fields")
+                return
+        }
         
         InternalUserController.shared.createUserWith(email: userEmail, password: userPassword, username: newUsername) { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
                     print("User created Successfully")
+                    print(userEmail)
                 }
             }
         }
