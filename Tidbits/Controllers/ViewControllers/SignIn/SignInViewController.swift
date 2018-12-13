@@ -113,6 +113,7 @@ class SignInViewController: UIViewController {
     var emailTextField: UITextField = {
         let email = UITextField()
         email.resignFirstResponder()
+//        email.text?.lowercased()
         email.leftViewMode = .always
 //        email.layer.borderColor = UIColor.white.cgColor
 //        email.layer.borderWidth = 2
