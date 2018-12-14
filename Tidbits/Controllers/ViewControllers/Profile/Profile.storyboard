@@ -47,9 +47,9 @@
                                     <action selector="signOutButtonTapped:" destination="V45-M5-zM3" eventType="touchUpInside" id="DYO-tE-nBx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-KM-CrM">
-                                <rect key="frame" x="54" y="323" width="321" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome, " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-KM-CrM">
+                                <rect key="frame" x="90" y="323" width="186" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,7 +75,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aIj-gt-N4D"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="userProfile" selectedImage="userProfile" id="be1-c1-Bab"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="userProfile" selectedImage="userProfile" id="be1-c1-Bab">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="customizedSignOutButton" destination="t8h-fR-4c9" id="G9N-OB-IOZ"/>
@@ -94,4 +100,5 @@
         <image name="icons8-add-user-male-96" width="72" height="72"/>
         <image name="userProfile" width="22.5" height="22.5"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

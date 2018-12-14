@@ -21,18 +21,18 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NjA-Nn-8KR">
                                 <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="ovT-9U-2Pk">
-                                    <size key="itemSize" width="176" height="179"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="0.0" id="ovT-9U-2Pk">
+                                    <size key="itemSize" width="170" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="25" minY="25" maxX="25" maxY="25"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectCell" id="jeS-ct-cp0" customClass="BrowseCollectionViewCell" customModule="Tidbits" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="179"/>
+                                        <rect key="frame" x="102.5" y="25" width="170" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="176" height="179"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="plusbutton" translatesAutoresizingMaskIntoConstraints="NO" id="Xjm-dz-Qpn">
@@ -47,7 +47,7 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailingMargin" secondItem="zUV-8k-WTe" secondAttribute="trailing" constant="36" id="6PQ-LT-wBE"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zUV-8k-WTe" secondAttribute="trailing" constant="30" id="6PQ-LT-wBE"/>
                                             <constraint firstItem="Xjm-dz-Qpn" firstAttribute="top" secondItem="jeS-ct-cp0" secondAttribute="topMargin" constant="20" id="7yt-GK-QoA"/>
                                             <constraint firstItem="Xjm-dz-Qpn" firstAttribute="centerX" secondItem="jeS-ct-cp0" secondAttribute="centerX" id="QGA-zO-NWA"/>
                                             <constraint firstItem="zUV-8k-WTe" firstAttribute="leading" secondItem="jeS-ct-cp0" secondAttribute="leadingMargin" constant="37" id="mtK-RO-qAd"/>
@@ -285,4 +285,5 @@
         <image name="logo" width="600" height="600"/>
         <image name="plusbutton" width="64" height="64"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
