@@ -13,65 +13,44 @@ class AddHackViewController: UITableViewController {
     //MARK: Outlets
     @IBOutlet weak var customTableView: UITableView!
     @IBOutlet weak var enterTidbitTextField: UITextField!
-    @IBOutlet weak var customTabbar2: UITabBarItem!
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var categoryTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryTextField.inputView = categoryPickerView
+        pickerData = ["All", "Tech", "Food", "Money", "Health", "Funny", "Party", "Favorites"]
+        categoryPickerView.dataSource = self
+        categoryPickerView.delegate = self
     }
     
     let viewController:UIViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
-    
     var photo: UIImage?
     var category: PostController.Categories?
-    //MARK: - Actions
-    @IBAction func dropDownSelection(_ sender: UIButton) {
-        allcategories.forEach { (category) in
-            UIView.animate(withDuration: 0.3, animations: {
-                category.isHidden = !category.isHidden
-                self.view.layoutIfNeeded()
-            })
-        }
-    }
-
-    @IBOutlet var allcategories: [UIButton]!
+    var pickerData: [String] = []
     
-    @IBAction func categoryButtonTapped(_ sender: UIButton) {
-        // Sets w.e the title of w.e category is clicked
-        guard let title = sender.currentTitle, let tidbitCategory = PostController.Categories(rawValue: title) else { return }
-        self.category = tidbitCategory
-        switch tidbitCategory {
-        case .all :
-            print("All category button was tapped")
-        case .party :
-            print("Fashion category button was tapped")
-        case .favorites :
-            print("Favorites Button Tapped")
-        case .food :
-        print("Food category button was tapped")
-        case .health :
-            print("Health button was tapped")
-        case .money :
-            print("Money button was tapped")
-        case .tech :
-            print("Tech button was tapped")
-        case .funny :
-            print("Funny button was tapped")
-        default:
-            print("Select a category button was tapped")
-        }
-    }
-    
-    @IBAction func postButtonTapped(_ sender: UIButton) {
+    @IBAction func postButtonTapped(_ sender: Any) {
         print("post button was tapped")
         guard let image = photo,
             let tidbit = enterTidbitTextField.text,
             !tidbit.isEmpty,
-            let category = category else { return }
-        PostController.shared.createPostWith(image: image, text: tidbit, category: category.rawValue, username: "") { (post) in
+            let category = categoryTextField.text else { return }
+        PostController.shared.createPostWith(image: image, text: tidbit, category: category, username: "") { (post) in
         }
         self.tabBarController?.selectedIndex = 0
     }
     
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        
+        enterTidbitTextField.text = ""
+        categoryTextField.text = ""
+        self.tabBarController?.selectedIndex = 0
+    }
+    
+    @IBAction func userTappedView(_ sender: Any) {
+        enterTidbitTextField.resignFirstResponder()
+        categoryTextField.resignFirstResponder()
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,5 +65,25 @@ extension AddHackViewController: PhotoSelectorViewControllerDelegate {
     
     func selectPhoto(_ photo: UIImage) {
         self.photo = photo
+    }
+}
+
+extension AddHackViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let text = pickerData[row]
+        categoryTextField.text = text
     }
 }
