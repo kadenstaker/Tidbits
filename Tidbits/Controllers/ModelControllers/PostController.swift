@@ -69,6 +69,26 @@ class PostController {
         } else {
             FirebaseManager.save(object: post.asDictionary, to: databaseRef, completion: { (success) in
                 if success {
+                    switch post.category {
+                    case "All":
+                        self.posts?.append(post)
+                    case "Tech":
+                        self.techPosts?.append(post)
+                    case "Food":
+                        self.foodPosts?.append(post)
+                    case "Money":
+                        self.moneyPosts?.append(post)
+                    case "Health":
+                        self.healthPosts?.append(post)
+                    case "Funny":
+                        self.funnyPosts?.append(post)
+                    case "Party" :
+                        self.partyPosts?.append(post)
+                    case "Favorites" :
+                        self.favoritePosts?.append(post)
+                    default:
+                        self.posts?.append(post)
+                    }
                     completion(true)
                 }
             })

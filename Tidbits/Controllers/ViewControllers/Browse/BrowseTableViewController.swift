@@ -9,14 +9,8 @@
 import UIKit
 
 class BrowseTableViewController: UITableViewController, BrowseTableViewCellDelegate {
-    func isFavoritedImageValueChanged(cell: BrowseTableViewCell) {
-        guard let post = cell.post else { return }
-        PostController.shared.changeIsFavorited(post: post)
-        cell.updateViews()
-    }
     
-
-    //Mark: Outlets
+    // Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
     var posts: [Post]?
@@ -24,6 +18,11 @@ class BrowseTableViewController: UITableViewController, BrowseTableViewCellDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 120
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -62,7 +61,13 @@ class BrowseTableViewController: UITableViewController, BrowseTableViewCellDeleg
             destinationVC.post = hack
         }
     }
-
+    
+    // MARK: - Extra functions
+    func isFavoritedImageValueChanged(cell: BrowseTableViewCell) {
+        guard let post = cell.post else { return }
+        PostController.shared.changeIsFavorited(post: post)
+        cell.updateViews()
+    }
 }
 
 extension BrowseTableViewController: UISearchBarDelegate{

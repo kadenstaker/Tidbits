@@ -17,7 +17,7 @@
                     <view key="view" contentMode="scaleToFill" id="EbS-9i-JLD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.40774381160736084" green="0.72347849607467651" blue="0.63136577606201172" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="zhS-N4-LJW"/>
                     </view>
                     <navigationItem key="navigationItem" id="UKP-uf-AxN">
@@ -47,4 +47,5 @@
             <point key="canvasLocation" x="36" y="-4.0479760119940034"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

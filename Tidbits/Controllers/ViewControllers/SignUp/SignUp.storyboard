@@ -53,7 +53,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.090196078431372548" green="0.21176470588235294" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.24181669950485229" green="0.51714062690734863" blue="0.53334087133407593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="t7H-Qh-K7R" firstAttribute="centerY" secondItem="HzT-6z-AXd" secondAttribute="centerY" id="0pn-Zo-isn"/>
                             <constraint firstItem="HzT-6z-AXd" firstAttribute="trailing" secondItem="t7H-Qh-K7R" secondAttribute="trailing" constant="50" id="ZxM-3y-YaN"/>
@@ -102,4 +102,5 @@
             <point key="canvasLocation" x="1055.2" y="92.203898050974516"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

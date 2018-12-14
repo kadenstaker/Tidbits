@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     }
     func updateViews() {
         guard let internalUser = InternalUserController.shared.loggedInUser else { return }
-        welcomeLabel.text = "Welcome to Tidbits \(internalUser.username)"
+        welcomeLabel.text = "Welcome, \(internalUser.username)!"
     }
     
     func alertAppear() {
