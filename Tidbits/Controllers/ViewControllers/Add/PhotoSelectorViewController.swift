@@ -14,7 +14,6 @@ protocol PhotoSelectorViewControllerDelegate: class {
 
 class PhotoSelectorViewController: UIViewController {
     
-    
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var selectPhotoButton: UIButton!
     
@@ -24,7 +23,10 @@ class PhotoSelectorViewController: UIViewController {
         super.viewDidLoad()
         selectPhotoButton.setTitle("Select Photo", for: .normal)
 //        selectPhotoButton.setTitleColor(.black, for: .normal)
-//        selectPhotoButton.setImage(#imageLiteral(resourceName: "tabBarAdd"), for: .normal)
+
+
+        selectPhotoButton.setImage(#imageLiteral(resourceName: "add-image.png"), for: .normal)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

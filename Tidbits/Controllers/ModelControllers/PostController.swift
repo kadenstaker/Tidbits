@@ -23,7 +23,7 @@ class PostController {
     var funnyPosts: [Post]? = []
     var partyPosts: [Post]? = []
     var favoritePosts: [Post]? = []
-    
+
     enum Categories: String {
         case all = "All"
         case tech = "Tech"

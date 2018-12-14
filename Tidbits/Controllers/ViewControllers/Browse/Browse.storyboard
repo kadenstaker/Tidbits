@@ -126,7 +126,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="2SA-sB-Dvo">
-                                            <rect key="frame" x="160.5" y="121" width="102.5" height="30"/>
+                                            <rect key="frame" x="160.5" y="121" width="30" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqK-0M-bK7">
                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -139,12 +139,6 @@
                                                         <action selector="heartButtonTapped:" destination="arT-OP-zJG" eventType="touchUpInside" id="iEe-OX-R7H"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMB-Nm-mLG">
-                                                    <rect key="frame" x="59" y="0.0" width="43.5" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -160,7 +154,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="AMB-Nm-mLG" id="j8F-Xy-O3O"/>
                                     <outlet property="heartButton" destination="rqK-0M-bK7" id="b9g-D7-oqH"/>
                                     <outlet property="tidbitImageView" destination="k6P-a3-i6b" id="kXb-Za-YOx"/>
                                     <outlet property="tidbitTextLabel" destination="Xkv-gM-trW" id="AGJ-tn-pY2"/>
@@ -236,25 +229,16 @@
                                     <action selector="otherButtonTapped:" destination="O7b-6B-a2V" eventType="touchUpInside" id="9DZ-pX-7Bb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Date)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTo-0U-5wq">
-                                <rect key="frame" x="315" y="361" width="43.5" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GPh-DT-ljb" firstAttribute="leading" secondItem="U2v-Jc-DvP" secondAttribute="trailing" constant="17" id="7fO-E6-Uul"/>
                             <constraint firstItem="aaI-ts-waU" firstAttribute="trailing" secondItem="MNl-5g-G5z" secondAttribute="trailing" constant="16" id="CER-p2-sF7"/>
                             <constraint firstItem="pCK-Vb-Pyw" firstAttribute="trailing" secondItem="aaI-ts-waU" secondAttribute="trailing" id="HcX-h1-QmB"/>
-                            <constraint firstItem="U2v-Jc-DvP" firstAttribute="top" secondItem="xTo-0U-5wq" secondAttribute="top" id="Jys-ss-jgO"/>
                             <constraint firstItem="aaI-ts-waU" firstAttribute="bottom" secondItem="U2v-Jc-DvP" secondAttribute="bottom" constant="227" id="KEa-qm-IHI"/>
-                            <constraint firstItem="aaI-ts-waU" firstAttribute="trailing" secondItem="xTo-0U-5wq" secondAttribute="trailing" constant="16.5" id="QVD-Tz-5oZ"/>
                             <constraint firstItem="pCK-Vb-Pyw" firstAttribute="top" secondItem="aaI-ts-waU" secondAttribute="top" id="SDN-1F-WvM"/>
                             <constraint firstItem="MNl-5g-G5z" firstAttribute="top" secondItem="U2v-Jc-DvP" secondAttribute="bottom" constant="15" id="U9E-cE-8cV"/>
                             <constraint firstItem="pCK-Vb-Pyw" firstAttribute="leading" secondItem="aaI-ts-waU" secondAttribute="leading" id="Xd7-tt-Tjk"/>
-                            <constraint firstItem="U2v-Jc-DvP" firstAttribute="bottom" secondItem="xTo-0U-5wq" secondAttribute="bottom" id="hYG-J9-RFy"/>
                             <constraint firstItem="MNl-5g-G5z" firstAttribute="leading" secondItem="aaI-ts-waU" secondAttribute="leading" constant="16" id="hrj-aa-Hos"/>
                             <constraint firstItem="U2v-Jc-DvP" firstAttribute="leading" secondItem="ku9-yR-7nQ" secondAttribute="leadingMargin" id="mfy-AC-ZN8"/>
                             <constraint firstItem="U2v-Jc-DvP" firstAttribute="top" secondItem="pCK-Vb-Pyw" secondAttribute="bottom" constant="8" id="nzY-k7-Pi4"/>
@@ -263,7 +247,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="UR5-kB-rFg"/>
                     <connections>
-                        <outlet property="detailDateLabel" destination="xTo-0U-5wq" id="cv0-6R-mc9"/>
                         <outlet property="detailImageView" destination="pCK-Vb-Pyw" id="bcG-tM-NaS"/>
                         <outlet property="heartB" destination="hd2-lD-dlx" id="oqL-aT-SM3"/>
                         <outlet property="userTidbit" destination="MNl-5g-G5z" id="Y3x-Mq-2Jx"/>
