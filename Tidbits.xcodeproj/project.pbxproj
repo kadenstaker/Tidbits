@@ -36,6 +36,7 @@
 		FAD0950D21B0929200C999CD /* InternalUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950C21B0929200C999CD /* InternalUserController.swift */; };
 		FAD0950F21B0A18700C999CD /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0950E21B0A18700C999CD /* PostController.swift */; };
 		FAD0951121B0D1F600C999CD /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0951021B0D1F600C999CD /* FirebaseManager.swift */; };
+		FAE7923C21C433C200174BE9 /* AddHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE7923B21C433C200174BE9 /* AddHackViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		FAD0950C21B0929200C999CD /* InternalUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalUserController.swift; sourceTree = "<group>"; };
 		FAD0950E21B0A18700C999CD /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		FAD0951021B0D1F600C999CD /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		FAE7923B21C433C200174BE9 /* AddHackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHackViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,8 +236,8 @@
 		FAD0950121B0533000C999CD /* Add */ = {
 			isa = PBXGroup;
 			children = (
+				FAE7923B21C433C200174BE9 /* AddHackViewController.swift */,
 				FAD0950321B053B000C999CD /* Add.storyboard */,
-				1900D41521C423A1002A453A /* AddHackViewController.swift */,
 				191F15CD21B2291000160F3D /* PhotoSelectorViewController.swift */,
 			);
 			path = Add;
@@ -408,7 +410,7 @@
 				FAD0950921B0870D00C999CD /* InternalUser.swift in Sources */,
 				19123CF421B0A13800619398 /* BrowseDetailViewController.swift in Sources */,
 				19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */,
-				1900D41621C423A1002A453A /* AddHackViewController.swift in Sources */,
+				FAE7923C21C433C200174BE9 /* AddHackViewController.swift in Sources */,
 				193466C421BF15A700145B0F /* Extensions.swift in Sources */,
 				191F15C821B1C64400160F3D /* AlertManager.swift in Sources */,
 				FAD0950D21B0929200C999CD /* InternalUserController.swift in Sources */,

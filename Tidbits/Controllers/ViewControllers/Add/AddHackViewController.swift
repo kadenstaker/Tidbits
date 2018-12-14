@@ -2,7 +2,7 @@
 //  AddHackViewController.swift
 //  Tidbits
 //
-//  Created by Xavier on 12/14/18.
+//  Created by Kaden Staker on 12/14/18.
 //  Copyright © 2018 Kaden Staker. All rights reserved.
 //
 
@@ -23,8 +23,8 @@ class AddHackViewController: UITableViewController {
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
         
-        tabBarItem.selectedImage = UIImage(named: "tabBarAdd")?.withRenderingMode(.alwaysOriginal)
-        tabBarItem.image = UIImage(named: "tabBarAdd")
+        //        tabBarItem.selectedImage = UIImage(named: "tabBarAdd")?.withRenderingMode(.alwaysOriginal)
+        //        tabBarItem.image = UIImage(named: "tabBarAdd")
     }
     
     let viewController:UIViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
