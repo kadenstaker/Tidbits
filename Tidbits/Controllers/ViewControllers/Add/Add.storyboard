@@ -106,7 +106,7 @@
                             <outlet property="delegate" destination="D6D-ip-g3A" id="0YO-4g-edb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Add" selectedImage="tabBarAdd" id="xnZ-22-qys"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="tabBarAdd" selectedImage="tabBarAdd" id="xnZ-22-qys"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="s6b-Ta-kim">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SNZ-aa-Hom">
@@ -181,7 +181,6 @@
         <!--Add-->
         <scene sceneID="3Wu-tM-fws">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hPc-Y2-dcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Kf-u1-jZX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Add" image="tabBarItem:y9Z-fN-sWH:image" selectedImage="tabBarItem:y9Z-fN-sWH:image" id="y9Z-fN-sWH"/>
                     <toolbarItems/>
@@ -194,6 +193,7 @@
                         <segue destination="D6D-ip-g3A" kind="relationship" relationship="rootViewController" id="QLs-rJ-OVS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPc-Y2-dcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1717.5999999999999" y="195.6521739130435"/>
         </scene>

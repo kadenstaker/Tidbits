@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="addItem" value=" "/>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="HFf-Lv-Wic" kind="relationship" relationship="viewControllers" id="LXP-lK-REk"/>
@@ -42,7 +45,7 @@
         <scene sceneID="tGi-kR-BbJ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Add" id="P6j-GB-ORp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OZH-AS-An0"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="tabBarAdd" id="OZH-AS-An0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUm-Cm-J1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,4 +62,8 @@
             <point key="canvasLocation" x="162" y="-229"/>
         </scene>
     </scenes>
+    <resources>
+        <image name=" " width="16" height="16"/>
+        <image name="tabBarAdd" width="22.5" height="22.5"/>
+    </resources>
 </document>
