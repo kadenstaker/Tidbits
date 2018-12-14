@@ -218,7 +218,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-DT-ljb" userLabel="D">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPh-DT-ljb" userLabel="D">
                                 <rect key="frame" x="63" y="361" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GPh-DT-ljb" secondAttribute="height" multiplier="1:1" id="Kb8-Cc-fNO"/>
@@ -240,6 +240,7 @@
                             <constraint firstItem="MNl-5g-G5z" firstAttribute="top" secondItem="U2v-Jc-DvP" secondAttribute="bottom" constant="15" id="U9E-cE-8cV"/>
                             <constraint firstItem="pCK-Vb-Pyw" firstAttribute="leading" secondItem="aaI-ts-waU" secondAttribute="leading" id="Xd7-tt-Tjk"/>
                             <constraint firstItem="MNl-5g-G5z" firstAttribute="leading" secondItem="aaI-ts-waU" secondAttribute="leading" constant="16" id="hrj-aa-Hos"/>
+                            <constraint firstItem="GPh-DT-ljb" firstAttribute="top" secondItem="U2v-Jc-DvP" secondAttribute="top" id="iFk-Zs-kIY"/>
                             <constraint firstItem="U2v-Jc-DvP" firstAttribute="leading" secondItem="ku9-yR-7nQ" secondAttribute="leadingMargin" id="mfy-AC-ZN8"/>
                             <constraint firstItem="U2v-Jc-DvP" firstAttribute="top" secondItem="pCK-Vb-Pyw" secondAttribute="bottom" constant="8" id="nzY-k7-Pi4"/>
                         </constraints>
@@ -249,6 +250,7 @@
                     <connections>
                         <outlet property="detailImageView" destination="pCK-Vb-Pyw" id="bcG-tM-NaS"/>
                         <outlet property="heartB" destination="hd2-lD-dlx" id="oqL-aT-SM3"/>
+                        <outlet property="otherButtonTapped" destination="GPh-DT-ljb" id="yhQ-eO-qij"/>
                         <outlet property="userTidbit" destination="MNl-5g-G5z" id="Y3x-Mq-2Jx"/>
                     </connections>
                 </viewController>
