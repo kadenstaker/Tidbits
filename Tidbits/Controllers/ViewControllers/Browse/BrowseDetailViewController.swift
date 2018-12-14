@@ -19,6 +19,7 @@ class BrowseDetailViewController: UIViewController{
     @IBOutlet weak var detailDateLabel: UILabel!
     @IBOutlet weak var userTidbit: UILabel!
     @IBOutlet weak var heartB: UIButton!
+    @IBOutlet weak var otherButtonTapped: UIButton!
     
     var post: Post?
     var interalUser: InternalUser?
