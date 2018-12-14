@@ -26,6 +26,8 @@ class SignInViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        self.navigationController?.transparentNavBar()
     }
     
     @objc func cancelAction(){
@@ -224,7 +226,7 @@ extension SignInViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField ==  emailTextField {
             emailTextField.resignFirstResponder()
-            emailTextField.text?.lowercased()
+//            emailTextField.text?.lowercased()
         }
         if textField == passwordTextField {
             passwordTextField.resignFirstResponder()

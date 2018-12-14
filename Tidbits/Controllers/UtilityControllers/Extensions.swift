@@ -29,3 +29,10 @@ extension UITextField {
     }
 }
 
+extension UINavigationController {
+    func transparentNavBar(){
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.shadowImage = UIImage()
+    }
+}
+

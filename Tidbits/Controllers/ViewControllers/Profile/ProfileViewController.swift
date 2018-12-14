@@ -17,10 +17,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var defaultImage: UIImageView!
     @IBOutlet weak var customizedSignOutButton: UIButton!
     
-    var internalUser: InternalUser?{
-        didSet{
-            updateViews()
-        }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return.lightContent
     }
     
     
@@ -30,7 +28,39 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         customizedSignOutButton.layer.cornerRadius = 8
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        updateViews()
+    }
+    func updateViews() {
+        guard let internalUser = InternalUserController.shared.loggedInUser else { return }
+        welcomeLabel.text = "Welcome to Tidbits \(internalUser.username)"
+    }
+    
+    func alertAppear() {
+        let alert = UIAlertController(title: nil , message: "Are your sure you want to sign out?", preferredStyle: .actionSheet)
+        
+        let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { (_) in
+            InternalUserController.shared.loggedInUser
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(signOut)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
+        alertAppear()
         do {
             try Auth.auth().signOut()
             InternalUserController.shared.loggedInUser = nil
@@ -40,10 +70,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    func updateViews() {
-        guard let internalUser = internalUser else { return }
-        welcomeLabel.text = "Welcome to Tidbits \(internalUser.username)"
-    }
     
     @objc func cancelAction(){
         let storyboard = UIStoryboard(name: "collectionVC", bundle: nil)
@@ -79,6 +105,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         present(actionSheet, animated:  true)
     }
 }
+
 extension ProfileViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         setProfilePicButton.setTitle("", for: .normal)

@@ -27,7 +27,6 @@ class BrowseCollectionViewController: UIViewController, UICollectionViewDataSour
 
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
          return PostController.shared.categories.count
     }
     
@@ -37,20 +36,28 @@ class BrowseCollectionViewController: UIViewController, UICollectionViewDataSour
         switch cell.restorationIdentifier {
         case "All":
             destinationVC.posts = PostController.shared.posts
+            destinationVC.title = "All"
         case "Tech":
             destinationVC.posts = PostController.shared.techPosts
+             destinationVC.title = "Tech"
         case "Food":
             destinationVC.posts = PostController.shared.foodPosts
+             destinationVC.title = "Food"
         case "Money":
             destinationVC.posts = PostController.shared.moneyPosts
+             destinationVC.title = "Money"
         case "Health":
             destinationVC.posts = PostController.shared.healthPosts
+             destinationVC.title = "Health"
         case "Funny":
             destinationVC.posts = PostController.shared.funnyPosts
+             destinationVC.title = "Funny"
         case "Party":
             destinationVC.posts = PostController.shared.partyPosts
-        case "Favorite":
+             destinationVC.title = "Party"
+        case "Favorites":
             destinationVC.posts = PostController.shared.favoritePosts
+             destinationVC.title = "Favorites"
         default:
             print("Something went wrong")
         }

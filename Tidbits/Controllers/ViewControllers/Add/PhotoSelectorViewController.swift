@@ -24,7 +24,7 @@ class PhotoSelectorViewController: UIViewController {
         super.viewDidLoad()
         selectPhotoButton.setTitle("Select Photo", for: .normal)
 //        selectPhotoButton.setTitleColor(.black, for: .normal)
-//        selectPhotoButton.setImage(#imageLiteral(resourceName: "photoPlaceholder"), for: .normal)
+//        selectPhotoButton.setImage(#imageLiteral(resourceName: "tabBarAdd"), for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {

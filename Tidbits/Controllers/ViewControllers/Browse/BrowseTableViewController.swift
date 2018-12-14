@@ -19,7 +19,7 @@ class BrowseTableViewController: UITableViewController, BrowseTableViewCellDeleg
     //Mark: Outlets
     @IBOutlet weak var searchbar: UISearchBar!
     
-       var posts: [Post]?
+    var posts: [Post]?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -35,10 +35,24 @@ class AlertManager {
         inSignUpVC.present(alert, animated: true, completion: nil)
     }
     
-//    static func reportAlert() -> UIAlertController{
-////        let reportAlert = UIAlertController(title: "Report Post", message: "Are you sure you want to report this Post?", preferredStyle: <#T##UIAlertController.Style#>)
+//    static func signOutAlert(_ inProfileVC: UIViewController, title: String, message: String){
+//        let alert = UIAlertController(title: title , message: message, preferredStyle: .actionSheet)
+//        
+//        let signOut = UIAlertAction(title: "Sign out", style: .destructive, handler: nil)
+//        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        
+//        alert.addAction(signOut)
+//        alert.addAction(cancel)
+//        inProfileVC.present(alert, animated: true, completion: nil)
 //    }
-   
+    
+    
+    
+    
+    //    static func reportAlert() -> UIAlertController{
+    ////        let reportAlert = UIAlertController(title: "Report Post", message: "Are you sure you want to report this Post?", preferredStyle: <#T##UIAlertController.Style#>)
+    //    }
+    
 }
 
 //What kind of alerts
