@@ -76,7 +76,7 @@ class BrowseCollectionViewController: UIViewController, UICollectionViewDataSour
         cell.contentView.layer.borderWidth = 5
         cell.contentView.layer.backgroundColor = UIColor.white.cgColor
         cell.backgroundColor = UIColor.white
-        cell.layer.shadowRadius = 5
+        cell.layer.shadowRadius = 20
         cell.layer.shadowOpacity = 0.2
         cell.layer.masksToBounds = false
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
