@@ -27,17 +27,7 @@ class SignUpViewController: UIViewController {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         
-//        let emailImage = UIImage(named: "email2")
-//        addImageToLeft(tField: emailTextField, addImage: emailImage!)
-//
-//        let passwordImage = UIImage(named: "lock")
-//        addImageToLeft(tField: passwordTextField , addImage: passwordImage!)
-//        passwordTextField.leftViewMode = .always
-//        emailTextField.leftViewMode = .always
-        
-        //Bar Button Item
-//        let rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: cancelButton, action: nil)
-//         self.navigationItem.rightBarButtonItem = rightBarButtonItem
+        self.navigationController?.transparentNavBar()
     }
     
     //MARK: - Actions
@@ -74,15 +64,9 @@ class SignUpViewController: UIViewController {
             signUpButton.layer.backgroundColor = otherTheme.cgColor
         }
     
-    //image stuff
-//    func addImageToLeft(tField: UITextField, addImage image: UIImage){
-//        let leftImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 30, height: 40))
-//        leftImageView.image = image
-//        tField.leftView = leftImageView
-//
-//        tField.leftViewMode = .always
-//    }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return.lightContent
+    }
     
     @objc func signInAction() {
         dismiss(animated: true, completion: nil)
@@ -95,7 +79,7 @@ class SignUpViewController: UIViewController {
         let font2 = UIFont.systemFont(ofSize: 12)
         let accountButton = UIButton(type: .system)
         //Using an attributed string because i'm want to use 2 diff colors for the account check button and sign in button. Don't want one color to get overwritten
-        let attributedTitle = NSMutableAttributedString(string: "Already have an account?", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
         accountButton.setAttributedTitle(attributedTitle, for: .normal)
         attributedTitle.append(NSMutableAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.foregroundColor : otherColor, NSMutableAttributedString.Key.font : font]))
         

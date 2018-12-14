@@ -47,8 +47,8 @@
                                     <action selector="signOutButtonTapped:" destination="V45-M5-zM3" eventType="touchUpInside" id="DYO-tE-nBx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-KM-CrM">
-                                <rect key="frame" x="54" y="323" width="92" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-KM-CrM">
+                                <rect key="frame" x="54" y="323" width="321" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                             <constraint firstItem="TyF-WZ-6qg" firstAttribute="leading" secondItem="ujA-WI-bVk" secondAttribute="leading" id="4E8-z1-bVr"/>
                             <constraint firstItem="TyF-WZ-6qg" firstAttribute="centerX" secondItem="t8h-fR-4c9" secondAttribute="centerX" id="7dz-F9-axY"/>
                             <constraint firstItem="Fj3-Eh-Wej" firstAttribute="leading" secondItem="aIj-gt-N4D" secondAttribute="leading" constant="112" id="9DQ-Pe-jVU"/>
-                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="EXE-KM-CrM" secondAttribute="trailing" constant="229" id="C1F-pU-AGV"/>
+                            <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="EXE-KM-CrM" secondAttribute="trailing" id="C1F-pU-AGV"/>
                             <constraint firstItem="TyF-WZ-6qg" firstAttribute="top" secondItem="ujA-WI-bVk" secondAttribute="top" id="I2p-Z7-J3t"/>
                             <constraint firstItem="OCY-TL-FkD" firstAttribute="bottom" secondItem="Fj3-Eh-Wej" secondAttribute="bottom" id="LJs-Cl-xVt"/>
                             <constraint firstItem="aIj-gt-N4D" firstAttribute="trailing" secondItem="Fj3-Eh-Wej" secondAttribute="trailing" constant="113" id="N5m-P0-izl"/>

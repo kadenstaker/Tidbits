@@ -88,7 +88,7 @@
             </objects>
             <point key="canvasLocation" x="1684" y="-159.67016491754123"/>
         </scene>
-        <!--All-->
+        <!--Browse Table View Controller-->
         <scene sceneID="iic-vj-6yD">
             <objects>
                 <tableViewController id="OES-Yd-r2E" customClass="BrowseTableViewController" customModule="Tidbits" customModuleProvider="target" sceneMemberID="viewController">
@@ -166,7 +166,7 @@
                             <outlet property="delegate" destination="OES-Yd-r2E" id="mMA-1J-x5D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All" id="gp2-Wu-Rm2"/>
+                    <navigationItem key="navigationItem" id="gp2-Wu-Rm2"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="4Kv-sA-5GY" id="SIt-h9-xjT"/>
                         <outlet property="searchbar" destination="NbV-ni-uyO" id="ES2-Of-ZaR"/>
