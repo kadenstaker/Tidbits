@@ -42,7 +42,7 @@ class SignInViewController: UIViewController {
         let logIn = UIButton(type: .system)
         logIn.setTitleColor(.white, for: .normal)
         logIn.setTitle("Log In", for: .normal)
-        logIn.backgroundColor = blueTheme
+        logIn.backgroundColor = darkBlue
         logIn.layer.borderWidth = 1.0
         logIn.layer.cornerRadius = 15
         logIn.addTarget(self, action: #selector(logInAction), for: .touchUpInside)
@@ -91,15 +91,15 @@ class SignInViewController: UIViewController {
     }
     
     let accountCheckButton: UIButton = {
-        let customizColor = UIColor(red: 20/255, green: 20/255, blue: 90/255, alpha: 1)
+        let customizeColor = darkBlue
         let otherColor = UIColor.white
         let font = UIFont.systemFont(ofSize: 16)
         let font2 = UIFont.systemFont(ofSize: 12)
         let accountButton = UIButton(type: .system)
         //Using an attributed string because i'm want to use 2 diff colors for the account check button and sign in button. Don't want one color to get overwritten
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor: customizColor])
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         accountButton.setAttributedTitle(attributedTitle, for: .normal)
-        attributedTitle.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.foregroundColor : otherColor, NSMutableAttributedString.Key.font : font]))
+        attributedTitle.append(NSMutableAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.foregroundColor : darkBlue, NSMutableAttributedString.Key.font : font]))
         
         accountButton.addTarget(self, action: #selector(signupAction), for: .touchUpInside)
         
@@ -122,7 +122,7 @@ class SignInViewController: UIViewController {
         email.leftViewMode = .always
 //        email.layer.borderColor = UIColor.white.cgColor
 //        email.layer.borderWidth = 2
-        email.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
+        email.boarderForBottom(backGroundColor: darkBlue, borderColor: .white)
 //        email.borderStyle = UITextField.BorderStyle.line
         let attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         email.attributedPlaceholder = attributedPlaceholder
@@ -136,7 +136,7 @@ class SignInViewController: UIViewController {
 //        password.placeholder = "Password"
         password.resignFirstResponder()
         password.isSecureTextEntry = true
-        password.boarderForBottom(backGroundColor: otherTheme, borderColor: .white)
+        password.boarderForBottom(backGroundColor: darkBlue, borderColor: .white)
 //        password.borderStyle = UITextField.BorderStyle.roundedRect
         let attributedTextPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
         password.attributedPlaceholder = attributedTextPlaceholder

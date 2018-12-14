@@ -25,7 +25,7 @@ class PhotoSelectorViewController: UIViewController {
 //        selectPhotoButton.setTitleColor(.black, for: .normal)
 
 
-        selectPhotoButton.setImage(#imageLiteral(resourceName: "add-image.png"), for: .normal)
+//        selectPhotoButton.setImage(#imageLiteral(resourceName: "tabBarAdd"), for: .normal)
 
     }
     
