@@ -26,9 +26,9 @@ class FirebaseManager {
                 completion(false)
                 return
             } else {
-//                let user = authResult?.user
-//                let isAnonymous = user?.isAnonymous // true
-//                let uid = user?.uid
+                //                let user = authResult?.user
+                //                let isAnonymous = user?.isAnonymous // true
+                //                let uid = user?.uid
                 completion(true)
             }
         }
