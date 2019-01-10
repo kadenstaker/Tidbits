@@ -17,6 +17,7 @@ class InternalUserController {
     // Properties
     var loggedInUser: InternalUser?
     var posts: [Post]? = []
+    var rtdb = Database.database()
     
     // Initializer
     private init () {}
@@ -49,6 +50,59 @@ class InternalUserController {
             
         }
     }
+    
+    func uploadProfileImage(user: InternalUser, completion: @escaping ((_ sucess:Bool)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let storageRef = Storage.storage().reference().child("user/\(uid)")
+        
+        var downloadURL: String?
+        var image = UIImage()
+        
+        guard let imageData = image.jpegData(compressionQuality: 0.4) else { return }
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            if let error = error {
+                print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                completion(false); return
+            }
+            storageRef.downloadURL(completion: { (url, error) in
+                downloadURL = url?.absoluteString
+                //update local image
+                user.profileImageURL = downloadURL
+                
+                
+                let userObject = [
+                    "username": user.username as Any,
+                    "photoURL": user.profileImageURL as Any
+                    ] as [String : Any]
+                if let error = error {
+                    print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                    completion(false); return
+                }
+                completion(true)
+            })
+        }
+        Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
+            if let error = error {
+                print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+            }
+        }
+    }
+    
+    //    func saveProfile(username: String, profileImageURL: URL, completion: @escaping (( _ success:Bool)->())) {
+    //        guard let uid = Auth.auth().currentUser?.uid else { return }
+    //        let databaseRef = Database.database().reference().child("users/profile/\(uid)")
+    //
+    //        let userObject = [
+    //            "username": username,
+    //            "photoURL": profileImageURL.absoluteString
+    //        ] as [String : Any]
+    //
+    //        databaseRef.setValue(userObject) { (error, ref) in
+    //            completion(error == nil)
+    //        }
+    //    }
 }
 
 

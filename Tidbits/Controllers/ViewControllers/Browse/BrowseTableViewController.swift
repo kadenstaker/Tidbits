@@ -58,7 +58,9 @@ class BrowseTableViewController: UITableViewController, BrowseTableViewCellDeleg
             guard let destinationVC = segue.destination as? BrowseDetailViewController else { return }
             let indexPath = tableView.indexPathForSelectedRow
             let hack = PostController.shared.posts?[indexPath?.row ?? 0]
+            let test = InternalUserController.shared.loggedInUser
             destinationVC.post = hack
+            destinationVC.interalUser = test
         }
     }
     

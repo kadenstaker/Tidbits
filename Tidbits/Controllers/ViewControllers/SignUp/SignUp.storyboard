@@ -52,12 +52,19 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TidbitsLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="We0-c0-8h9">
+                                <rect key="frame" x="115" y="102" width="144" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.24181669950485229" green="0.51714062690734863" blue="0.53334087133407593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="t7H-Qh-K7R" firstAttribute="centerY" secondItem="HzT-6z-AXd" secondAttribute="centerY" id="0pn-Zo-isn"/>
+                            <constraint firstItem="t7H-Qh-K7R" firstAttribute="top" secondItem="We0-c0-8h9" secondAttribute="bottom" constant="32" id="3Sw-3H-Lkp"/>
+                            <constraint firstItem="HzT-6z-AXd" firstAttribute="trailing" secondItem="We0-c0-8h9" secondAttribute="trailing" constant="116" id="KIS-Vn-FS3"/>
+                            <constraint firstItem="We0-c0-8h9" firstAttribute="leading" secondItem="HzT-6z-AXd" secondAttribute="leading" constant="115" id="Nld-Dg-61R"/>
                             <constraint firstItem="HzT-6z-AXd" firstAttribute="trailing" secondItem="t7H-Qh-K7R" secondAttribute="trailing" constant="50" id="ZxM-3y-YaN"/>
                             <constraint firstItem="t7H-Qh-K7R" firstAttribute="centerX" secondItem="HzT-6z-AXd" secondAttribute="centerX" id="a85-Ta-gcG"/>
+                            <constraint firstItem="We0-c0-8h9" firstAttribute="top" secondItem="HzT-6z-AXd" secondAttribute="top" constant="38" id="cPj-v5-Bg3"/>
                             <constraint firstItem="t7H-Qh-K7R" firstAttribute="leading" secondItem="HzT-6z-AXd" secondAttribute="leading" constant="50" id="sjC-cI-H9G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HzT-6z-AXd"/>
@@ -102,5 +109,8 @@
             <point key="canvasLocation" x="1055.2" y="92.203898050974516"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TidbitsLaunchScreen" width="1125" height="2436"/>
+    </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

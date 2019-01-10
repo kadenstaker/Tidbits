@@ -34,10 +34,19 @@ class BrowseDetailViewController: UIViewController{
         guard let post = post, let internalUser = interalUser else { return }
         detailImageView.image = post.image
         userTidbit.text = "\(internalUser.username) & \(post.text)"
+        
+        if post.isFavorited {
+            heartB.setImage(#imageLiteral(resourceName: "iconfinder_Instagram_UI-07_2315589"), for: .normal)
+        }else{
+            heartB.setImage(#imageLiteral(resourceName: "defaultHeart"), for: .normal)
+        }
     }
     
     //MARK: - Actions
     @IBAction func heartButtonTapped(_ sender: UIButton) {
+        guard let post = post, let interalUser = interalUser else { return }
+        PostController.shared.changeIsFavorited(post: post)
+        updateViews()
     }
     //    @IBAction func shareButtonTapped(_ sender: Any) {
     //    }
