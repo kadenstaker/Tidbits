@@ -14,17 +14,24 @@ class InternalUser {
     let username: String
     var profileImageURL: String?
     var profileImage: UIImage?
-    var favoritePostIDs: String?
-    var postIDs: [Post]?
+    var favoritePostIDs: [String] = []
+    var postIDs: [Post] = []
     let email: String
-    var blockedIDs: [String]?
+    var blockedIDs: [String] = []
+    var favoritePostIDsDictionary: [String : Bool] {
+        guard let loggedInUser = InternalUserController.shared.loggedInUser else { return [:] }
+        var dictionary: [String : Bool] = [:]
+        loggedInUser.favoritePostIDs.forEach {
+            dictionary[$0] = true
+        }
+        return dictionary
+    }
     
     // Initializer
-    init(username: String, profileImageURL: String?, profileImage: UIImage?, favoritePostIDs: String?, postIDs: [Post]?, email: String) {
+    init(username: String, profileImageURL: String?, profileImage: UIImage?, postIDs: [Post] = [], email: String) {
         self.username = username
         self.profileImageURL = profileImageURL
         self.profileImage = profileImage
-        self.favoritePostIDs = favoritePostIDs
         self.postIDs = postIDs
         self.email = email
     }

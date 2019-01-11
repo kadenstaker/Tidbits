@@ -15,6 +15,9 @@ class AddHackViewController: UITableViewController {
     @IBOutlet weak var enterTidbitTextField: UITextField!
     @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var postImageView: UIView!
+    
+    //    var hackText: String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +25,14 @@ class AddHackViewController: UITableViewController {
         pickerData = ["All", "Tech", "Food", "Money", "Health", "Funny", "Party", "Favorites"]
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
-        
-        //        tabBarItem.selectedImage = UIImage(named: "tabBarAdd")?.withRenderingMode(.alwaysOriginal)
-        //        tabBarItem.image = UIImage(named: "tabBarAdd")
+        setupTextField()
+        imageViewStuff()
+    }
+    
+    func imageViewStuff() {
+        guard let postImageView = postImageView else { return }
+        postImageView.clipsToBounds = true
+        postImageView.contentMode = .scaleAspectFit
     }
     
     let viewController:UIViewController = UIStoryboard(name: "SignUp", bundle: nil).instantiateViewController(withIdentifier: "SignUpVC") as UIViewController
@@ -39,12 +47,14 @@ class AddHackViewController: UITableViewController {
             !tidbit.isEmpty,
             let category = categoryTextField.text else { return }
         PostController.shared.createPostWith(image: image, text: tidbit, category: category, username: "") { (post) in
+            self.enterTidbitTextField.text = ""
+            self.categoryTextField.text = ""
+            //Need to clear the image as well
         }
         self.tabBarController?.selectedIndex = 0
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        
         enterTidbitTextField.text = ""
         categoryTextField.text = ""
         self.tabBarController?.selectedIndex = 0
@@ -88,5 +98,23 @@ extension AddHackViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let text = pickerData[row]
         categoryTextField.text = text
+        self.view.endEditing(true)
     }
+}
+
+extension AddHackViewController: UITextFieldDelegate {
+    func setupTextField() {
+        enterTidbitTextField.delegate = self
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == enterTidbitTextField {
+            enterTidbitTextField.resignFirstResponder()
+        }
+    }
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            if textField == enterTidbitTextField {
+                enterTidbitTextField.resignFirstResponder()
+            }
+            return true
+        }
 }

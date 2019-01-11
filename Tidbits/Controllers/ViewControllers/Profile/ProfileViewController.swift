@@ -30,6 +30,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         customizedSignOutButton.setTitleColor(.black, for: .normal)
         customizedSignOutButton.layer.cornerRadius = 8
         disable()
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +40,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     func updateViews() {
         guard let internalUser = InternalUserController.shared.loggedInUser else { return }
         welcomeLabel.text = "Welcome, \(internalUser.username)!"
-        
+        guard internalUser.profileImage != nil else { return }
         if internalUser.profileImage == nil {
             ImageViewOutlet.image = #imageLiteral(resourceName: "defaultImage")
         }else {
@@ -79,6 +80,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     func enableEditing() {
         editButton.setTitle("Save", for: .normal)
+        print("save button tapped")
         setProfilePicButton.isEnabled = true
         setProfilePicButton.isHidden = false
         //        setProfilePicButton.isHidden = true
@@ -141,8 +143,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             }
             InternalUserController.shared.uploadProfileImage(user: user) { (success) in
                 if success{
-                    self.disable()
-                    self.cancelButton.isHidden = true
+                    DispatchQueue.main.async {
+                        self.disable()
+                        self.cancelButton.isHidden = true
+                    }
                 }
             }
         }

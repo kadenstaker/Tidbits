@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             InternalUserController.shared.loggedInUser = loggedInUser
         }
         
+    
+        
         window?.makeKeyAndVisible()
 //        let logInVC = SignUpViewController()
 //        let controller = UINavigationController(rootViewController: logInVC)

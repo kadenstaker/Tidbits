@@ -43,6 +43,22 @@ class InternalUserController {
         }
     }
     
+    func saveFavoritePost(postID: String, completion: @escaping(Bool) -> Void){
+//        let favoritesRef = fa
+        guard let loggedInUser = loggedInUser else { completion(false) ; return }
+        loggedInUser.favoritePostIDs.append(postID)
+        
+        let favoritesRef = FirebaseManager.databaseRef.child("Users").child(loggedInUser.username).child("Favorite")
+     
+        print(favoritesRef.description())
+        
+        FirebaseManager.save(object: loggedInUser.favoritePostIDsDictionary,
+                             to: favoritesRef) { (success) in
+            completion(true)
+        }
+        
+        
+    }
     func getCurrentUser(completion: @escaping (Bool) -> Void) {
         FirebaseManager.getUser { (internalUserDictionary) in
             guard let internalUserDictionary = internalUserDictionary as? [String : Any], let internalUser = InternalUser(dictionary: internalUserDictionary) else { completion(false) ; return }
