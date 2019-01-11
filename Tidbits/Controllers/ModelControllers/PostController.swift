@@ -15,14 +15,14 @@ class PostController {
     static let shared = PostController()
     
     // Properties
-    var posts: [Post]? = []
-    var techPosts: [Post]? = []
-    var foodPosts: [Post]? = []
-    var moneyPosts: [Post]? = []
-    var healthPosts: [Post]? = []
-    var funnyPosts: [Post]? = []
-    var partyPosts: [Post]? = []
-    var favoritePosts: [Post]? = []
+    var posts: [Post] = []
+    var techPosts: [Post] = []
+    var foodPosts: [Post] = []
+    var moneyPosts: [Post] = []
+    var healthPosts: [Post] = []
+    var funnyPosts: [Post] = []
+    var partyPosts: [Post] = []
+    var favoritePosts: [Post] = []
 
     enum Categories: String {
         case all = "All"
@@ -37,7 +37,26 @@ class PostController {
     
     let categories = ["All", "Tech", "Food", "Money", "Health", "Funny", "Party", "Favorites"]
     
-    func changeIsFavorited(post: Post) {  post.isFavorited = !post.isFavorited }
+    func changeIsFavorited(post: Post) {
+        guard let postUID = post.uid else { return }
+        
+        if post.isFavorited {
+            InternalUserController.shared.loggedInUser?.favoritePostIDs.removeAll(where: { (string) -> Bool in
+                return string == postUID
+            })
+            self.favoritePosts.removeAll(where: { (post) -> Bool in
+                return post == post
+            })
+        } else {
+             InternalUserController.shared.loggedInUser?.favoritePostIDs.append(postUID)
+            InternalUserController.shared.saveFavoritePost(postID: postUID) { (success) in
+                if success {
+                    self.favoritePosts.append(post)
+                }
+            }
+        }
+        post.isFavorited = !post.isFavorited
+    }
     
     // Initializer
     private init() {}
@@ -71,23 +90,23 @@ class PostController {
                 if success {
                     switch post.category {
                     case "All":
-                        self.posts?.append(post)
+                        self.posts.append(post)
                     case "Tech":
-                        self.techPosts?.append(post)
+                        self.techPosts.append(post)
                     case "Food":
-                        self.foodPosts?.append(post)
+                        self.foodPosts.append(post)
                     case "Money":
-                        self.moneyPosts?.append(post)
+                        self.moneyPosts.append(post)
                     case "Health":
-                        self.healthPosts?.append(post)
+                        self.healthPosts.append(post)
                     case "Funny":
-                        self.funnyPosts?.append(post)
+                        self.funnyPosts.append(post)
                     case "Party" :
-                        self.partyPosts?.append(post)
+                        self.partyPosts.append(post)
                     case "Favorites" :
-                        self.favoritePosts?.append(post)
+                        self.favoritePosts.append(post)
                     default:
-                        self.posts?.append(post)
+                        self.posts.append(post)
                     }
                     completion(true)
                 }
@@ -100,16 +119,21 @@ class PostController {
         
         FirebaseManager.fetch(from: ref) { (fetchedPosts) in
             guard let postDictionaries = fetchedPosts as? [String : [String : Any]] else { completion(false) ; return }
-            self.posts = postDictionaries.compactMap { Post(postDictionary: $0.value) }
+            postDictionaries.forEach({ (key, value) in
+                guard let newPost = Post(postDictionary: value) else { return }
+                newPost.uid = key
+                self.posts.append(newPost)
+            })
+//            self.posts = postDictionaries.compactMap { Post(postDictionary: $0.value) }
             
-            self.techPosts = self.posts?.filter{ $0.category == "Tech" }
-            self.foodPosts = self.posts?.filter{ $0.category == "Food" }
-            self.techPosts = self.posts?.filter{ $0.category == "Tech" }
-            self.moneyPosts = self.posts?.filter{ $0.category == "Money" }
-            self.healthPosts = self.posts?.filter{ $0.category == "Health" }
-            self.funnyPosts = self.posts?.filter{ $0.category == "Funny" }
-            self.partyPosts = self.posts?.filter{ $0.category == "Party" }
-            self.favoritePosts = self.posts?.filter{ $0.category == "Favorites" }
+            self.techPosts = self.posts.filter{ $0.category == "Tech" }
+            self.foodPosts = self.posts.filter{ $0.category == "Food" }
+            self.techPosts = self.posts.filter{ $0.category == "Tech" }
+            self.moneyPosts = self.posts.filter{ $0.category == "Money" }
+            self.healthPosts = self.posts.filter{ $0.category == "Health" }
+            self.funnyPosts = self.posts.filter{ $0.category == "Funny" }
+            self.partyPosts = self.posts.filter{ $0.category == "Party" }
+            self.favoritePosts = self.posts.filter{ $0.category == "Favorites" }
         }
     }
     
