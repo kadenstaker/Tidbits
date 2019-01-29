@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import  Firebase
+import Firebase
 
 class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -35,13 +35,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        updateViews()
     }
+    
     func updateViews() {
         guard let internalUser = InternalUserController.shared.loggedInUser else { return }
         welcomeLabel.text = "Welcome, \(internalUser.username)!"
-        guard internalUser.profileImage != nil else { return }
-        if internalUser.profileImage == nil {
+        let profilePic = internalUser.profileImage
+        if profilePic == nil {
             ImageViewOutlet.image = #imageLiteral(resourceName: "defaultImage")
         }else {
             ImageViewOutlet.image = internalUser.profileImage
@@ -146,6 +146,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                     DispatchQueue.main.async {
                         self.disable()
                         self.cancelButton.isHidden = true
+                        
                     }
                 }
             }
@@ -164,11 +165,12 @@ extension ProfileViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         setProfilePicButton.setTitle("", for: .normal)
         picker.dismiss(animated: true, completion: nil)
-        if let photo = info[.editedImage] as? UIImage {
+        if let photo = info[.originalImage] as? UIImage{
             
             ImageViewOutlet.image = photo
-            //            setProfilePicButton.setBackgroundImage(photo, for: .normal)
-            //            setProfilePicButton.setImage(nil, for: .normal)
+                        setProfilePicButton.setBackgroundImage(photo, for: .normal)
+                        setProfilePicButton.setImage(nil, for: .normal)
+            picker.allowsEditing = true
         }
     }
     
