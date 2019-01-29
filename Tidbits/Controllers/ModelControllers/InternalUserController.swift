@@ -44,17 +44,17 @@ class InternalUserController {
     }
     
     func saveFavoritePost(postID: String, completion: @escaping(Bool) -> Void){
-//        let favoritesRef = fa
+        //        let favoritesRef = fa
         guard let loggedInUser = loggedInUser else { completion(false) ; return }
         loggedInUser.favoritePostIDs.append(postID)
         
         let favoritesRef = FirebaseManager.databaseRef.child("Users").child(loggedInUser.username).child("Favorite")
-     
+        
         print(favoritesRef.description())
         
         FirebaseManager.save(object: loggedInUser.favoritePostIDsDictionary,
                              to: favoritesRef) { (success) in
-            completion(true)
+                                completion(true)
         }
         
         
@@ -67,41 +67,44 @@ class InternalUserController {
         }
     }
     
-    func uploadProfileImage(user: InternalUser, completion: @escaping ((_ sucess:Bool)->())) {
+    func uploadProfileImage(user: InternalUser, completion: @escaping ((_ success:Bool)->())) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let storageRef = Storage.storage().reference().child("user/\(uid)")
         
         var downloadURL: String?
-        var image = UIImage()
-        
-        guard let imageData = image.jpegData(compressionQuality: 0.4) else { return }
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
-        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
-            if let error = error {
-                print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
-                completion(false); return
-            }
-            storageRef.downloadURL(completion: { (url, error) in
-                downloadURL = url?.absoluteString
-                //update local image
-                user.profileImageURL = downloadURL
-                
-                
-                let userObject = [
-                    "username": user.username as Any,
-                    "photoURL": user.profileImageURL as Any
-                    ] as [String : Any]
-                if let error = error {
-                    print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
-                    completion(false); return
+        //        let image = UIImage()
+        if let profileImage = user.profileImage {
+            if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpg"
+                storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+                    if let error = error {
+                        print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                        completion(false); return
+                    }
+                    storageRef.downloadURL(completion: { (url, error) in
+                        downloadURL = url?.absoluteString
+                        //update local image
+                        user.profileImageURL = downloadURL
+                        
+                        
+                        let userObject = [
+                            "username": user.username as Any,
+                            "photoURL": user.profileImageURL as Any
+                            ] as [String : Any]
+                        if let error = error {
+                            print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                            completion(false); return
+                        }
+                        completion(true)
+                    })
                 }
-                completion(true)
-            })
-        }
-        Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
-            if let error = error {
-                print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
+                    if let error = error {
+                        print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+                    }
+                    completion(true)
+                }
             }
         }
     }
