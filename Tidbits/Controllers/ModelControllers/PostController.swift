@@ -45,7 +45,7 @@ class PostController {
                 return string == postUID
             })
             self.favoritePosts.removeAll(where: { (post) -> Bool in
-                return post == post
+                return post == post 
             })
         } else {
              InternalUserController.shared.loggedInUser?.favoritePostIDs.append(postUID)

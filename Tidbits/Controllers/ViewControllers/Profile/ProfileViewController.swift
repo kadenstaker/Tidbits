@@ -142,11 +142,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                 user.profileImage = ImageViewOutlet.image
             }
             InternalUserController.shared.uploadProfileImage(user: user) { (success) in
-                if success{
+                if success {
                     DispatchQueue.main.async {
-                        self.disable()
                         self.cancelButton.isHidden = true
-                        
+                        self.disable()
                     }
                 }
             }

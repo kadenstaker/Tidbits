@@ -30,6 +30,12 @@ class BrowseDetailViewController: UIViewController{
         updateViews()
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+//        updateViews()
+//        reloadInputViews()
+//    }
+    
     func updateViews() {
         guard let post = post, let internalUser = interalUser else { return }
         detailImageView.image = post.image

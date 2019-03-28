@@ -56,9 +56,8 @@ class InternalUserController {
                              to: favoritesRef) { (success) in
                                 completion(true)
         }
-        
-        
     }
+    
     func getCurrentUser(completion: @escaping (Bool) -> Void) {
         FirebaseManager.getUser { (internalUserDictionary) in
             guard let internalUserDictionary = internalUserDictionary as? [String : Any], let internalUser = InternalUser(dictionary: internalUserDictionary) else { completion(false) ; return }
@@ -88,7 +87,7 @@ class InternalUserController {
                         user.profileImageURL = downloadURL
                         
                         
-                        let userObject = [
+                        _ = [
                             "username": user.username as Any,
                             "photoURL": user.profileImageURL as Any
                             ] as [String : Any]
@@ -105,6 +104,12 @@ class InternalUserController {
                     }
                     completion(true)
                 }
+//                FirebaseManager.save(data: imageData, to: storageRef) { (nil, error, downloadURL) in
+//                    if let error = error {
+//                        print("There was an error in \(#function) ; \(error) ; \(error.localizedDescription) ")
+//                    }
+//                    completion(true)
+//                }
             }
         }
     }

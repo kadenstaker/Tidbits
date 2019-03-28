@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1900D41621C423A1002A453A /* AddHackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1900D41521C423A1002A453A /* AddHackViewController.swift */; };
 		19123CEE21B097C900619398 /* BrowseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CED21B097C900619398 /* BrowseCollectionViewController.swift */; };
 		19123CF021B097EB00619398 /* BrowseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CEF21B097EB00619398 /* BrowseCollectionViewCell.swift */; };
 		19123CF221B0A0DC00619398 /* BrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19123CF121B0A0DC00619398 /* BrowseTableViewController.swift */; };
@@ -22,10 +21,10 @@
 		193466CE21BF3AFD00145B0F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193466CD21BF3AFD00145B0F /* SignUpViewController.swift */; };
 		1962525921B5F31F004C2D58 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1962525821B5F31F004C2D58 /* ProfileViewController.swift */; };
 		19A5E01A21C05D520047EE3E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A5E01921C05D520047EE3E /* Constants.swift */; };
+		19B67245224C074D00529F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3C021AC9D080092C3F8 /* Assets.xcassets */; };
 		C78B82500767E46D30B7E390 /* Pods_Tidbits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 435AAAFAC6E848D592363443 /* Pods_Tidbits.framework */; };
 		FA5EC3BA21AC9D070092C3F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC3B921AC9D070092C3F8 /* AppDelegate.swift */; };
 		FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3BD21AC9D070092C3F8 /* Main.storyboard */; };
-		FA5EC3C121AC9D080092C3F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3C021AC9D080092C3F8 /* Assets.xcassets */; };
 		FA5EC3C421AC9D080092C3F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5EC3C221AC9D080092C3F8 /* LaunchScreen.storyboard */; };
 		FAD094F221B04FEE00C999CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAD094F121B04FEE00C999CD /* GoogleService-Info.plist */; };
 		FAD094F521B0510900C999CD /* Browse.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD094F421B0510900C999CD /* Browse.storyboard */; };
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		0D0A6C8EB7DDA45B8B3DAA7B /* Pods-Tidbits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tidbits.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tidbits/Pods-Tidbits.release.xcconfig"; sourceTree = "<group>"; };
-		1900D41521C423A1002A453A /* AddHackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHackViewController.swift; sourceTree = "<group>"; };
 		19123CED21B097C900619398 /* BrowseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseCollectionViewController.swift; sourceTree = "<group>"; };
 		19123CEF21B097EB00619398 /* BrowseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BrowseCollectionViewCell.swift; path = Tidbits/Controllers/ViewControllers/BrowseCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		19123CF121B0A0DC00619398 /* BrowseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseTableViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +295,7 @@
 				TargetAttributes = {
 					FA5EC3B521AC9D070092C3F8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -327,10 +326,10 @@
 				FAD094F521B0510900C999CD /* Browse.storyboard in Resources */,
 				193466C921BF372000145B0F /* SignUp.storyboard in Resources */,
 				FAD094F221B04FEE00C999CD /* GoogleService-Info.plist in Resources */,
-				FA5EC3C121AC9D080092C3F8 /* Assets.xcassets in Resources */,
 				FAD0950421B053B000C999CD /* Add.storyboard in Resources */,
 				FAD0950621B053E700C999CD /* Profile.storyboard in Resources */,
 				193466C621BF369B00145B0F /* SignIn.storyboard in Resources */,
+				19B67245224C074D00529F9C /* Assets.xcassets in Resources */,
 				FA5EC3BF21AC9D070092C3F8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,9 +566,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kadenstaker.Tidbits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kadenstaker.Tidbits1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -586,9 +585,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.kadenstaker.Tidbits;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kadenstaker.Tidbits1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
