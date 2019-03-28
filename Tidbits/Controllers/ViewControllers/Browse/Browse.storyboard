@@ -113,7 +113,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="k6P-a3-i6b">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TidbitsLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="k6P-a3-i6b">
                                             <rect key="frame" x="20" y="19" width="132" height="132"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="k6P-a3-i6b" secondAttribute="height" multiplier="1:1" id="lOd-eN-sfB"/>
@@ -280,9 +280,9 @@
     </scenes>
     <resources>
         <image name="Browse" width="22.5" height="22.5"/>
+        <image name="TidbitsLaunchScreen" width="1125" height="2436"/>
         <image name="defaultHeart" width="256" height="256"/>
         <image name="iconfinder_other_1167997" width="256" height="256"/>
-        <image name="logo" width="600" height="600"/>
         <image name="plusbutton" width="64" height="64"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

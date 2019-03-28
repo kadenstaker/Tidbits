@@ -51,6 +51,10 @@ class BrowseTableViewController: UITableViewController, BrowseTableViewCellDeleg
         }
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
