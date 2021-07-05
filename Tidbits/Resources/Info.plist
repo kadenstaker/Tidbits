@@ -18,8 +18,21 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED</key>
+	<string>YES</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<string>NO</string>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>The purpose for using the users camera is for the users to be able to add a profile picture and to set an image for the tidbit.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
